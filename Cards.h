@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+
 class Card
 {
 public:
@@ -17,13 +18,15 @@ public:
 		NINE = 9,
 		TEN = 10,
 		JACK = 11,
-		QUEEN = 11,
-		KING = 11
+		QUEEN = 12,
+		KING = 13
 	};
 	enum Suite
 	{
 		SPADE = 0, HEART, CLUB, DIAMOND
 	};
+	Card();
+	~Card();
 	Rank getRank() const;
 	Suite getSuite() const;
 	char getSuiteChar() const;

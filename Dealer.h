@@ -5,6 +5,7 @@
  *      Author: obaba
  */
 #include <vector>
+
 #ifndef DEALER_H_
 #define DEALER_H_
 
