@@ -24,11 +24,10 @@ public:
 	{
 		SPADE = 0, HEART, CLUB, DIAMOND
 	};
-
 	Rank getRank() const;
 	Suite getSuite() const;
 	char getSuiteChar() const;
 
 private:
-	int id;
+	int card;
 };
