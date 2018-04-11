@@ -13,6 +13,7 @@ int main()
 {
 
 	cout << "" << endl; // prints 
+	cout << "Thanks for always saving my grade " << endl; // prints 
 	return 0;
 
 
