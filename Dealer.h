@@ -16,9 +16,10 @@ class Dealer
 	void Deal();
 
 	public:
-	void Hit();
-	int CheckHand();
+	virtual void Hit();
+	virtual int CheckHand();
 	void Shuffle();
+	virtual ~Dealer();
 
 };
 

@@ -4,11 +4,15 @@
  *  Created on: Apr 10, 2018
  *      Author: obaba
  */
+#include <vector>
+#include <iostream>
+#include <string>
 
 #include <Cards.h>
 #include <Deck.h>
 #include <Player.h>
 #include <Dealer.h>
+
 
 #ifndef SYSTEM_H_
 #define SYSTEM_H_
@@ -24,6 +28,7 @@ private:
 public:
 	System();
 	~System();
+	void start();
 
 };
 
