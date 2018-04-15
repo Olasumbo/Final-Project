@@ -5,26 +5,34 @@
  *      Author: obaba
  */
 
-//#include <Player.h>
+#include <Player.h>
+
+Player::Player()
+{
+	players_total = 0;
+	card_total = 0;
+    bank = 1000;
+    bet = 0;
+}
 
 int Player::cansplit()
 {
 	int count;
 	for(auto i:hand)
 	{
-		if( i == TEN )
+		if( i == Card::TEN )
 		{
 			count++;
 		}
-		if( i == KING )
+		if( i == Card::KING )
 		{
 			count++;
 		}
-		if( i == QUEEN)
+		if( i == Card::QUEEN)
 		{
 			count++;
 		}
-		if( i == JACK )
+		if( i == Card::JACK )
 		{
 			count++;
 		}
@@ -57,20 +65,19 @@ void Player:: Hit()
 	Deal();
 }
 
-int Player::player_hands()
+int Player::player_hands() // This calculate the total number of the player's hand
 {
-	int sum;
 	for(auto i:hand)
 	{
-		sum += hand;
+		card_total += hand;
 	}
-	if(sum > 21)
+	if(card_total > 21)
 	{
 		for(auto i:hand)
 		{
-			if(i == TEN)
+			if(i == Card::TEN)
 			{
-				i = ACE;
+				i = Card::ACE;
 			}
 			else
 			{
@@ -78,11 +85,27 @@ int Player::player_hands()
 			}
 		}
 	}
+	return 0;
 }
-int Player::CheckHand()
+int Player::CheckHand()//This is where the win, lose or busted will take place
 {
 	// Check to see if player or system hand is 21
-	int sum = 0;
+	if(card_total == 21)
+	{
+		cerr << "BLACKJACK\n"
+			 << "Your card total was" << card_total <<endl;
+	}
+	else if (card_total > 21)
+	{
+		cerr << "YOU BUSTED\n"
+		 	 << "Your card total was" << card_total <<endl;
+	}
+	else if (card_total < 21)
+	{
+		cerr << "YOU LOST\n"
+			 << "Your card total was" << card_total <<endl;
+	}
+	return 0;
 
 }
 void Player:: Stay()
@@ -94,7 +117,7 @@ void Player:: Double()
 	//Double at anytime
 	if(bet > 500)
 	{
-		cout<<"You cannot double you bet because you dont have enough found" << endl;
+		cout<<"You cannot double you bet because you don't have enough fund" << endl;
 	}
 	else
 	{

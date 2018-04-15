@@ -7,11 +7,12 @@
 #include <vector>
 #include <iostream>
 #include <string>
-
 #include <Cards.h>
 #include <Deck.h>
 #include <Player.h>
 #include <Dealer.h>
+
+using namespace std;
 
 
 #ifndef SYSTEM_H_

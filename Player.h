@@ -7,9 +7,12 @@
 #include <vector>
 #include <iostream>
 #include <string>
+
 #include <Cards.h>
 #include <Deck.h>
 #include <Dealer.h>
+
+using namespace std;
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
@@ -19,11 +22,19 @@ class Player
 	private:
 	vector<int> hand;
 	int cansplit();
-	int players_total;
-	string player;
-	int card_total;
+	int players_total;//Number of players
+	string player; //player name
+	int card_total; //player totals card
 	int bet;
-	void Deal();
+	int bank;
+	void Deal()// I need a place where all the cards are stored then iterate through it and deal a random 2 card.
+	{
+		cerr <"Dealing Cards ......\n";
+		for(int i = 0 ; i < 2; i++)
+		{
+
+		}
+	}
 
 	public:
 	void Hit();

@@ -5,6 +5,9 @@
  *      Author: obaba
  */
 #include <vector>
+#include <iostream>
+#include <Cards.h>
+using namespace std;
 
 #ifndef DEALER_H_
 #define DEALER_H_
