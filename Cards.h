@@ -29,6 +29,7 @@ public:
 	~Card();
 	Rank getRank() const;
 	Suite getSuite() const;
+	void printCards(Suite, Rank);
 	char getSuiteChar() const;
 
 private:

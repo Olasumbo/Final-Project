@@ -17,28 +17,28 @@ Player::Player()
 }
 void Player::initBet()
 {
-		bet = 0;
-	    if(bank == 0)
-	    {
-			cout << "You have no money in your account." << endl;
-		}
+	bet = 0;
+	if(bank == 0)
+	{
+		cout << "You have no money in your account." << endl;
+	}
 
-	    do
-	    {
-	        cout << setprecision(3) << "Current balance For " << Playersname << " is " << bank << endl;
-	        cout<<"How much would you like to bet? Enter amount now: ";
-	        cin >> bet;
-			cin.clear();
-	        if(bet == 0)
-	        {
-	            cout << "You must bet to play" << endl;
-	        }
-	        else if(bet > bank)
-	        {
-	            cout << "You cannot bet more money than you have" << endl;
-	            bet = 0;
-	        }
-	    } while(bet == 0);
+	do
+	{
+		cout << setprecision(3) << "Current balance For " << Playersname << " is " << bank << endl;
+		cout<<"How much would you like to bet? Enter amount now: ";
+		cin >> bet;
+		cin.clear();
+		if(bet == 0)
+		{
+			cout << "You must bet to play" << endl;
+		}
+		else if(bet > bank)
+		{
+			cout << "You cannot bet more money than you have" << endl;
+			bet = 0;
+		}
+	} while(bet == 0);
 }
 
 int Player::cansplit()
