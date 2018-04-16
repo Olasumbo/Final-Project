@@ -17,6 +17,8 @@ class Dealer
 	private:
 	//vector<int> hand;
 	void Deal();
+	int dealer_hand;
+	int dealer_cardtotal;
 
 	public:
 	virtual void Hit();

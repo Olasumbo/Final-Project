@@ -11,8 +11,34 @@ Player::Player()
 {
 	players_total = 0;
 	card_total = 0;
-    bank = 1000;
-    bet = 0;
+	bet = 0;
+	bank = 1000;
+
+}
+void Player::initBet()
+{
+		bet = 0;
+	    if(bank == 0)
+	    {
+			cout << "You have no money in your account." << endl;
+		}
+
+	    do
+	    {
+	        cout << setprecision(3) << "Current balance For " << Playersname << " is " << bank << endl;
+	        cout<<"How much would you like to bet? Enter amount now: ";
+	        cin >> bet;
+			cin.clear();
+	        if(bet == 0)
+	        {
+	            cout << "You must bet to play" << endl;
+	        }
+	        else if(bet > bank)
+	        {
+	            cout << "You cannot bet more money than you have" << endl;
+	            bet = 0;
+	        }
+	    } while(bet == 0);
 }
 
 int Player::cansplit()
@@ -59,7 +85,7 @@ char Player::choice()
 	return c;
 }
 
-void Player:: Hit()
+void Player:: Hit() // need work
 {
 	//Deal 2 more cards to player or system
 	Deal();
@@ -87,23 +113,73 @@ int Player::player_hands() // This calculate the total number of the player's ha
 	}
 	return 0;
 }
-int Player::CheckHand()//This is where the win, lose or busted will take place
+
+int Player::CheckWin()//This is where the win, lose or busted will take place
 {
 	// Check to see if player or system hand is 21
-	if(card_total == 21)
-	{
-		cerr << "BLACKJACK\n"
-			 << "Your card total was" << card_total <<endl;
+	if(dealer_cardtotal > 21)
+	{										//Dealer bust conditions
+		cout << "Dealer Busts with " << dealer_cardtotal << endl;
+		if(card_total > 21)
+		{
+			cout << Playersname <<" Busts with " << card_total << endl;
+			cout << "Dealer Wins Over " << Playersname << endl;
+			bank -= bet;
+		}
+		else
+		{
+			cout << Playersname << " Wins" << endl;
+			bank += bet;
+			if(card_total == 21)
+			{
+				bank +=(bet/2);
+			}
+		}
 	}
-	else if (card_total > 21)
-	{
-		cerr << "YOU BUSTED\n"
-		 	 << "Your card total was" << card_total <<endl;
+	else if(dealer_cardtotal == 21)
+	{									//Dealer 21 conditions
+		if(card_total > 21)
+		{
+			cout << Playersname << " Busts with " << card_total << endl;
+			cout << "Dealer Wins Over " << Playersname << endl;
+			bank -= bet;
+		}
+		else if(card_total == 21)
+		{
+			cout << "BLACKJACK " << Playersname << endl;
+		}
+		else
+		{
+			cout << "Dealer Wins Over " << Playersname << endl;
+			bank -= bet;
+		}
 	}
-	else if (card_total < 21)
-	{
-		cerr << "YOU LOST\n"
-			 << "Your card total was" << card_total <<endl;
+	else
+	{													//Dealer under 21 Conditions
+		if(card_total > 21)
+		{
+			cout << Playersname << " Busts with " << card_total << endl;
+			cout << "Dealer Wins Over " << Playersname << endl;
+			bank -= bet;
+		}
+		else if(card_total > dealer_cardtotal)
+		{
+			cout << Playersname << " Wins with " << card_total << endl;
+			bank += bet;
+			if(card_total == 21)
+			{
+				bank +=(bet/2);
+			}
+		}
+		else if(card_total == dealer_cardtotal)
+		{
+			cout << "Push at " << card_total << " For " << Playersname << endl;
+		}
+		else
+		{
+			cout << "Dealer Wins with " << dealer_cardtotal << " Over " << Playersname << endl;
+			bank -= bet;
+		}
 	}
 	return 0;
 
@@ -125,7 +201,7 @@ void Player:: Double()
 	}
 }
 
-void Player::Split()
+void Player::Split()// need work
 {
 	//If player_hand has an Ace and a JACK/Queen/King then they can split into two
 
