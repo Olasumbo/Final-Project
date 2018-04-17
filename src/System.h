@@ -7,7 +7,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include "Cards.h"
+
+#include "Card.h"
 #include "Deck.h"
 #include "Player.h"
 #include "Dealer.h"

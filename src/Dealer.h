@@ -6,7 +6,8 @@
  */
 #include <vector>
 #include <iostream>
-#include "Cards.h"
+
+#include "Card.h"
 using namespace std;
 
 #ifndef DEALER_H_
@@ -15,19 +16,20 @@ using namespace std;
 class Dealer
 {
 	private:
-	//vector<int> hand;
-	void Deal();
-	int dealer_hand;
-	int dealer_cardtotal;
+		//vector<int> hand;
+		void Deal();
+		Deck mainDeck;
 
 	public:
-	virtual void Hit();
-	virtual int CheckHand();
-	void Shuffle();
-	virtual ~Dealer();
+		Dealer() { };
+		~Dealer() { };
+		int dealer_hand;
+		int dealer_cardtotal;
+		void Hit();
+		int CheckHand();
+		void Shuffle();
 
 };
-
 
 
 #endif /* DEALER_H_ */

@@ -79,26 +79,28 @@ void Player::initBet()
 
 int Player::cansplit()
 {
-	int count;
-	for(auto i:hand)
+	int count = 0;
+
+	for( auto i:hand )
 	{
-		if( i == Card::TEN )
+		if( i.getRank() == Card::ACE )
 		{
 			count++;
 		}
-		if( i == Card::KING )
+		if( i.getRank() == Card::KING )
 		{
 			count++;
 		}
-		if( i == Card::QUEEN)
+		if( i.getRank() == Card::QUEEN)
 		{
 			count++;
 		}
-		if( i == Card::JACK )
+		if( i.getRank() == Card::JACK )
 		{
 			count++;
 		}
 	}
+
 	if ( count == 2 )
 	{
 		cout << "Split Accepted" << endl;
@@ -135,15 +137,16 @@ int Player::player_hands() // This calculate the total number of the player's ha
 {
 	for(auto i:hand)
 	{
-		card_total += hand;
+		card_total += i.getValue();
 	}
+
 	if(card_total > 21)
 	{
 		for(auto i:hand)
 		{
-			if(i == Card::TEN)
+			if( i.getRank() == Card::TEN )
 			{
-				i = Card::ACE;
+				i.setRank( Card::ACE );
 			}
 			else
 			{
@@ -244,7 +247,7 @@ void Player:: Double()
 void Player::Split()// need work
 {
 	//If player_hand has an Ace and a JACK/Queen/King then they can split into two
-	vector <int> splithand;
+	vector<Card> splithand;
 	for(auto i = hand.begin(); i != hand.end();)
 	{
 		for(auto c: hand)//hand should only have 2 cards

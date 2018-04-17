@@ -13,7 +13,7 @@
 #include <iterator>
 #include <chrono>
 
-#include "Cards.h"
+#include "Card.h"
 #include "Deck.h"
 #include "Dealer.h"
 
@@ -24,27 +24,27 @@ using namespace std;
 
 class Player: public Dealer
 {
-private:
-	vector<Card> hand;
-	int players_total;//Number of players
-	int card_total; //player totals card
-	double bet, bank;
-	string *Playersname; //player name
+	private:
+		vector<Card> hand;
+		int players_total;//Number of players
+		double bet, bank;
+		string Playersname; //player name
 
-	int cansplit();
-	void Deal(); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
+		int cansplit();
+		void Deal(); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
 
 
-public:
-	Player();
-	void Hit();
-	int player_hands();
-	int CheckWin();
-	void Stay();
-	void Double();
-	void Split();
-	void initBet();
-	char choice();
+	public:
+		int card_total; //player totals card
+		Player();
+		void Hit();
+		int player_hands();
+		int CheckWin();
+		void Stay();
+		void Double();
+		void Split();
+		void initBet();
+		char choice();
 
 };
 

@@ -6,7 +6,8 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include "Cards.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main()
