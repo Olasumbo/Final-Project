@@ -13,7 +13,7 @@
 class Deck
 {
 private:
-	Card Card[52];
+	vector <Card> Card[52];
 	int num_cards;
 
 public:

@@ -82,6 +82,10 @@ char Player::choice()
 	cout << "Press H to get a more card\n, Press S to Stay\n Press D to Double\n Press SP to Split" << endl;
 	char c = ' ';
 	cin >> c;
+	/*if(c != H)
+	{
+		cerr <<"Invalid Input"<<endl;
+	}*/
 	return c;
 }
 
@@ -186,7 +190,7 @@ int Player::CheckWin()//This is where the win, lose or busted will take place
 }
 void Player:: Stay()
 {
-
+	//do nothing
 }
 void Player:: Double()
 {
@@ -204,7 +208,17 @@ void Player:: Double()
 void Player::Split()// need work
 {
 	//If player_hand has an Ace and a JACK/Queen/King then they can split into two
+	vector <int> splithand;
+	for(auto i = hand.begin(); i != hand.end();)
+	{
+		for(auto c: hand)//hand should only have 2 cards
+		{
+			splithand.push_back(c);
+		}
+		hand.erase(i);
+	}
 
+			// when we deal in this scenerio, we have to hit into both hand and split hand.
 }
 
 
