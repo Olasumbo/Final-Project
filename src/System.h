@@ -7,10 +7,10 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <Cards.h>
-#include <Deck.h>
-#include <Player.h>
-#include <Dealer.h>
+#include "Cards.h"
+#include "Deck.h"
+#include "Player.h"
+#include "Dealer.h"
 
 using namespace std;
 

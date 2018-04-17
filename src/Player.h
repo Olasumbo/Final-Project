@@ -9,9 +9,13 @@
 #include <string>
 #include <iomanip>
 
-#include <Cards.h>
-#include <Deck.h>
-#include <Dealer.h>
+#include <list>
+#include <iterator>
+#include <chrono>
+
+#include "Cards.h"
+#include "Deck.h"
+#include "Dealer.h"
 
 using namespace std;
 
@@ -21,26 +25,18 @@ using namespace std;
 class Player: public Dealer
 {
 private:
-	vector<int> hand;
-	int cansplit();
+	vector<Card> hand;
 	int players_total;//Number of players
 	int card_total; //player totals card
 	double bet, bank;
 	string *Playersname; //player name
-	void Deal()// I need a place where all the cards are stored then iterate through it and deal a random 2 card.
-	{
-		cerr <"Dealing Cards ......\n";
-		for(auto i: Deck::Card)
-		{
-			hand.push_back(i);
-			hand.push_back(i);
-			Deck::Card.pop_back(); //I am not sure if this is write at all but what am tring to do is to deal to cards into the players hands,
-			Deck::Card.popback(); // then pop those cards off the total card vector
-		}
 
-	}
+	int cansplit();
+	void Deal(); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
+
 
 public:
+	Player();
 	void Hit();
 	int player_hands();
 	int CheckWin();

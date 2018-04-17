@@ -11,15 +11,21 @@ using namespace std;
 
 Card::Rank getRank()
 {
-
+	Card jim;
+	return jim;
 }
+
 Card:: Suite getSuite()
 {
-
+	Card jim;
+	return jim;
 }
+
 char Card::getSuiteChar()
 {
 
+	char john;
+	return john;
 }
 
 
