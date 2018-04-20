@@ -29,7 +29,6 @@ class Player: public Dealer
 		int players_total;//Number of players
 		double bet, bank;
 		string Playersname; //player name
-
 		int cansplit();
 		void Deal(); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
 

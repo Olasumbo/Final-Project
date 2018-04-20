@@ -39,6 +39,7 @@ class Card
 		char getSuiteChar();
 		int getValue();
 		void setRank( Card::Rank newRank );
+		string toString();
 
 	private:
 		Suite theSuite;

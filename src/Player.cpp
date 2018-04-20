@@ -13,7 +13,7 @@ Player::Player()
 	card_total = 0;
 	bet = 0;
 	bank = 1000;
-	Playersname = "Joel Abshier";
+	Playersname = "Ola Babs";
 
 }
 
@@ -32,13 +32,12 @@ void Player::Deal()
 	 *
 	 */
 
-	vector<Card> tempDeck;
-
+	//vector<Card> tempDeck;
 	int i, x;
 	for( i = 0; i < 2; i++ )
 	{
 		x = rand() % 52;
-		move( tempDeck.begin() + x, tempDeck.begin() + x, hand.begin() );
+		move( Deckholder.begin() + x, Deckholder.begin() + x, hand.begin() );
 	}
 
 	/*(for(auto i: Deck::Card)
@@ -83,7 +82,7 @@ int Player::cansplit()
 
 	for( auto i:hand )
 	{
-		if( i.getRank() == Card::ACE )
+		if( i.getRank() == Card::TEN )
 		{
 			count++;
 		}
@@ -129,17 +128,20 @@ char Player::choice()
 
 void Player:: Hit() // need work
 {
-	//Deal 2 more cards to player or system
-	Deal();
+	//Deal 1 card at a time to player or system
+	int x;
+	x = rand() % 52;
+	move( Deckholder.begin() + x, Deckholder.begin() + x, hand.begin() );
 }
 
 int Player::player_hands() // This calculate the total number of the player's hand
 {
 	for(auto i:hand)
 	{
+		cout << " players hand is" << i << endl;
 		card_total += i.getValue();
+		cout << " players hand total = "<< card_total << endl;
 	}
-
 	if(card_total > 21)
 	{
 		for(auto i:hand)
@@ -257,7 +259,7 @@ void Player::Split()// need work
 		hand.erase(i);
 	}
 
-			// when we deal in this scenerio, we have to hit into both hand and split hand.
+	// when we deal in this scenerio, we have to hit into both hand and split hand.
 }
 
 
