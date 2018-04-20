@@ -34,9 +34,37 @@ int main()
 		cin >> num_player;
 	}
 
+	for( int i = 0; i < num_players; i++ )
+	{
+		Players.push_back( new Player() );
+	}
+	Players.push_back( new System() );
+
     cout << "1. View rules" << endl;
 	cout << "2. Play Blackjack" << endl;
 	cout << "3. Go to main menu" << endl;
+
+	while( gameNotOver )
+	{
+
+		foreach( Players )
+		{
+			Player[i].makeChoice();
+		}
+
+		if( someone Won? )
+		{
+			FIESTA!!!!!
+		}
+
+	}
+
+	/*
+	 *
+	 *
+	 *
+	 */
+
 	return 0;
 
 

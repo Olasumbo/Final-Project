@@ -20,13 +20,14 @@ using namespace std;
 #define SYSTEM_H_
 
 
-class System
+class System : public Player
 {
 private:
 	Deck cards;
 	Player *players;
 	Dealer game_delear;
 	int num_of_players;
+
 public:
 	System();
 	~System();

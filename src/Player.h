@@ -22,9 +22,9 @@ using namespace std;
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-class Player: public Dealer
+class Player
 {
-	private:
+	protected:
 		vector<Card> hand;
 		int players_total;//Number of players
 		double bet, bank;
