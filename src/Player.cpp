@@ -14,10 +14,11 @@ Player::Player()
 	bet = 0;
 	bank = 1000;
 	Playersname = "Ola Babs";
+	//Hiya
 
 }
 
-void Player::Deal()
+void Player::Deal( Deck theDeck )
 {
 	cerr << "Dealing Cards ......\n";
 
@@ -37,7 +38,7 @@ void Player::Deal()
 	for( i = 0; i < 2; i++ )
 	{
 		x = rand() % 52;
-		move( Deckholder.begin() + x, Deckholder.begin() + x, hand.begin() );
+		move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x, hand.begin() );
 	}
 
 	/*(for(auto i: Deck::Card)
@@ -126,19 +127,22 @@ char Player::choice()
 	return c;
 }
 
-void Player:: Hit() // need work
+void Player:: Hit( Deck theDeck ) // need work
 {
 	//Deal 1 card at a time to player or system
 	int x;
 	x = rand() % 52;
-	move( Deckholder.begin() + x, Deckholder.begin() + x, hand.begin() );
+
+
+	move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x, hand.begin() );
 }
 
 int Player::player_hands() // This calculate the total number of the player's hand
 {
 	for(auto i:hand)
 	{
-		cout << " players hand is" << i << endl;
+		cout << " players hand is" << endl;
+		i.printCard();
 		card_total += i.getValue();
 		cout << " players hand total = "<< card_total << endl;
 	}

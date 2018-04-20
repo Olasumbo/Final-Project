@@ -30,13 +30,13 @@ class Player: public Dealer
 		double bet, bank;
 		string Playersname; //player name
 		int cansplit();
-		void Deal(); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
 
 
 	public:
 		int card_total; //player totals card
+		void Deal( Deck theDeck ); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
 		Player();
-		void Hit();
+		void Hit( Deck theDeck );
 		int player_hands();
 		int CheckWin();
 		void Stay();
