@@ -23,14 +23,16 @@ using namespace std;
 class System : public Player
 {
 private:
-	Deck cards;
+	/*Deck cards;
 	Player *players;
 	Dealer game_delear;
-	int num_of_players;
+	int num_of_players;*/
 
 public:
 	System();
 	~System();
+	char choice();
+
 	void start();
 
 };

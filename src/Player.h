@@ -44,6 +44,7 @@ class Player
 		void Split();
 		void initBet();
 		char choice();
+		void Rule();
 
 };
 

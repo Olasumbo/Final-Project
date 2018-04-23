@@ -21,6 +21,8 @@ using namespace std;
 int main()
 {
 	int num_player;
+	vector <int> Players;
+
 	cout << "" << endl; // prints 
 	cout << "Welcome to Casino 3220, Lets Play some BlackJack" << endl; // prints
 	//cout << "***********************GAME ON*******************************" << endl;
@@ -34,7 +36,7 @@ int main()
 		cin >> num_player;
 	}
 
-	for( int i = 0; i < num_players; i++ )
+	/*for( int i = 0; i < num_players; i++ )
 	{
 		Players.push_back( new Player() );
 	}
@@ -55,7 +57,7 @@ int main()
 		if( someone Won? )
 		{
 			FIESTA!!!!!
-		}
+		}*/
 
 	}
 

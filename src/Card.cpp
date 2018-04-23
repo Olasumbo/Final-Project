@@ -10,7 +10,6 @@ using namespace std;
 
 Card::Card()
 {
-	//My name is Olasumbo!!! :D
 
 }
 
