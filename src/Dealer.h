@@ -28,6 +28,8 @@ class Dealer
 		int CheckHand();
 		int CheckWin();
 		void Shuffle();
+		int getdealerhand();
+		int getdealercardtot();
 };
 
 

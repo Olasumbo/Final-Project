@@ -23,7 +23,7 @@ using namespace std;
 #define PLAYER_H_
 
 class Player
-{
+ {
 	protected:
 		vector<Card> hand;
 		int players_total;//Number of players

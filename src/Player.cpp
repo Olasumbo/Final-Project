@@ -14,7 +14,6 @@ Player::Player()
 	bet = 0;
 	bank = 1000;
 	Playersname = " ";
-
 }
 
 void Player::Deal( Deck theDeck )
@@ -191,12 +190,12 @@ int Player::player_hands() // This calculate the total number of the player's ha
 	return 0;
 }
 
-int Player::CheckWin()//This is where the win, lose or busted will take place
+int Player::CheckWin(Dealer theDealer)//This is where the win, lose or busted will take place
 {
 	// Check to see if player or system hand is 21
-	if(dealer_cardtotal > 21)
+	if(theDealer.dealer_cardtotal > 21)
 	{										//Dealer bust conditions
-		cout << "Dealer Busts with " << dealer_cardtotal << endl;
+		cout << "Dealer Busts with " << theDealer.dealer_cardtotal << endl;
 		if(card_total > 21)
 		{
 			cout << Playersname <<" Busts with " << card_total << endl;
@@ -213,7 +212,7 @@ int Player::CheckWin()//This is where the win, lose or busted will take place
 			}
 		}
 	}
-	else if(dealer_cardtotal == 21)
+	else if(theDealer.dealer_cardtotal == 21)
 	{									//Dealer 21 conditions
 		if(card_total > 21)
 		{
@@ -239,7 +238,7 @@ int Player::CheckWin()//This is where the win, lose or busted will take place
 			cout << "Dealer Wins Over " << Playersname << endl;
 			bank -= bet;
 		}
-		else if(card_total > dealer_cardtotal)
+		else if(card_total > theDealer.dealer_cardtotal)
 		{
 			cout << Playersname << " Wins with " << card_total << endl;
 			bank += bet;
@@ -248,13 +247,13 @@ int Player::CheckWin()//This is where the win, lose or busted will take place
 				bank +=(bet/2);
 			}
 		}
-		else if(card_total == dealer_cardtotal)
+		else if(card_total == theDealer.dealer_cardtotal)
 		{
 			cout << "Push at " << card_total << " For " << Playersname << endl;
 		}
 		else
 		{
-			cout << "Dealer Wins with " << dealer_cardtotal << " Over " << Playersname << endl;
+			cout << "Dealer Wins with " << theDealer.dealer_cardtotal << " Over " << Playersname << endl;
 			bank -= bet;
 		}
 	}
