@@ -22,10 +22,28 @@ void Deck::createDeck()
 	for(i=0; i<4; i++)
 	{	
 		//if(needAcard.getSuite())
-		for(j=0; j<12; j++)
+		for(j=0; j<13; j++)
 		{
 			//if(needAcard.getRank())
-			Deckholder.push_back(Card(i.getSuite(),j.getRank());
+			Deckholder.push_back(Card(i,j);
 		}
 	}
-}   
+}  
+
+void Deck::displayDeck()
+{
+	int i=0;
+	
+	cout << "\nThe size of the deck is " << Deckholder.size() << endl;
+	
+	for(i=0; i<Deckholder.size(); i++)
+    {
+        cout << Deckholder[i] << endl;
+    }
+    cout << "\n" << endl;
+}
+
+// vector<Card> Deck::usingDeck
+// {
+	// return Deckholder;
+// }

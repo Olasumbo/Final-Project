@@ -12,9 +12,9 @@ void Dealer::Shuffle()
 	{
 		randomCard=rand()%52;
 
-		Card swap=deck[i];            // swaps card with random card
-		deck[i]=deck[randomCard];
-		deck[randomCard]=swap;
+		Card swap=mainDeck[i];            // swaps card with random card
+		mainDeck[i]=mainDeck[randomCard];
+		mainDeck[randomCard]=swap;
 	}
 }
 

@@ -25,6 +25,8 @@ class Deck
 		vector<Card> getDeck();
 		void createDeck();
 		void displayDeck();
+		
+		//vector<Card> usingDeck;
 };
 
 
