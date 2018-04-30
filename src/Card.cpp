@@ -22,11 +22,13 @@ char Card::getSuiteChar()
 
 Card::Rank Card::getRank()
 {
+	theRank=rank;   //don't know if this works
 	return theRank;
 }
 
 Card::Suite Card::getSuite()
 {
+	theSuite=suite; //don't know if this works
 	return theSuite;
 }
 
