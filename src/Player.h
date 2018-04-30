@@ -38,12 +38,12 @@ class Player
 		Player();
 		void Hit( Deck theDeck );
 		int player_hands();
-		int CheckWin();
+		int CheckWin(Dealer theDealer);
 		void Stay();
 		void Double();
 		void Split();
 		void initBet();
-		char choice();
+		virtual char choice();
 		void Rule();
 
 };

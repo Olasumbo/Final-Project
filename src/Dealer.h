@@ -8,6 +8,7 @@
 #include <iostream>
 
 #include "Card.h"
+#include "Deck.h"
 using namespace std;
 
 #ifndef DEALER_H_
@@ -25,9 +26,8 @@ class Dealer
 		~Dealer() { };
 		int dealer_hand;
 		int dealer_cardtotal;
-		int CheckHand();
-		int CheckWin();
 		void Shuffle();
+		//Accessor Functions
 		int getdealerhand();
 		int getdealercardtot();
 };

@@ -123,7 +123,7 @@ char Player::choice()
 	case 'H':
 	case 'h':
 	{
-		Hit(theDeck); // I need to pass players
+		Hit(theDeck); // This passes the deck into the function
 		break;
 	}
 	case 'S':
@@ -135,7 +135,7 @@ char Player::choice()
 	case 'D':
 	case 'd':
 	{
-		Double();
+		Double(); // if the player wants to
 		break;
 	}
 	case 'P':
@@ -156,7 +156,7 @@ char Player::choice()
 	return 0;
 }
 
-void Player:: Hit( Deck theDeck ) // need work
+void Player:: Hit( Deck theDeck )
 {
 	//Deal 1 card at a time to player or system
 	int x;

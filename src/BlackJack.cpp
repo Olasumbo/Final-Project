@@ -26,8 +26,6 @@ int main()
 	cout << "" << endl; // prints 
 	cout << "Welcome to Casino 3220, Lets Play some BlackJack" << endl; // prints
 	//cout << "***********************GAME ON*******************************" << endl;
-	cout << "Rules of the Game" << endl;
-	System();
 	cout << "How many Player would you like to play with today" << endl;
 	cin >> num_player;
 	while(num_player >= 4)
@@ -36,15 +34,16 @@ int main()
 		cin >> num_player;
 	}
 
+
+
+
 	/*for( int i = 0; i < num_players; i++ )
 	{
 		Players.push_back( new Player() );
 	}
 	Players.push_back( new System() );
 
-    cout << "1. View rules" << endl;
-	cout << "2. Play Blackjack" << endl;
-	cout << "3. Go to main menu" << endl;
+
 
 	while( gameNotOver )
 	{
@@ -57,17 +56,9 @@ int main()
 		if( someone Won? )
 		{
 			FIESTA!!!!!
-		}*/
+		}
 
-	}
-
-	/*
-	 *
-	 *
-	 *
-	 */
+	}*/
 
 	return 0;
-
-
 }
