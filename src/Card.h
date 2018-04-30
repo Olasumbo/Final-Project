@@ -9,7 +9,7 @@ using namespace std;
 class Card
 {
 	public:
-		Card();
+		Card(int cardSuit=0, int cardRank=1);
 		~Card() {};
 
 		enum Rank
@@ -43,8 +43,10 @@ class Card
 		void printCard();
 
 	private:
-		Suite theSuite;
+		Suite theSuite; 
 		Rank theRank;
+		int rank;
+		int suit;
 		//int theCard;  //This cannot have the same name as the class. 'Card' is reserved. Also, I wouldn't use this.
 };
 

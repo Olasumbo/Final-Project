@@ -8,14 +8,14 @@
 
 using namespace std;
 
-Card::Card()
+Card::Card(int cardSuit, int cardRank) 
 {
-
+	rank=cardRank;
+	suit=cardSuit;
 }
 
 char Card::getSuiteChar()
 {
-
 	char john = 'c';
 	return john;
 }

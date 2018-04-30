@@ -112,7 +112,7 @@ int Player::cansplit()
 	return 0;
 }
 
-char Player::choice(Deck theDeck)
+char Player::choice()
 {
 	cout << " Hit, Stay, Double, Split or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
@@ -199,14 +199,17 @@ int Player::CheckWin(Dealer theDealer)//This is where the win, lose or busted wi
 		if(card_total > 21)
 		{
 			cout << Playersname <<" Busts with " << card_total << endl;
-			cout << "You both Busted"<< endl;
+			cout << "Dealer Wins Over " << Playersname << endl;
 			bank -= bet;
 		}
 		else
 		{
 			cout << Playersname << " Wins" << endl;
-			bank += 2*bet;
-			return 1;
+			bank += bet;
+			if(card_total == 21)
+			{
+				bank +=(bet/2);
+			}
 		}
 	}
 	else if(theDealer.dealer_cardtotal == 21)
@@ -238,9 +241,11 @@ int Player::CheckWin(Dealer theDealer)//This is where the win, lose or busted wi
 		else if(card_total > theDealer.dealer_cardtotal)
 		{
 			cout << Playersname << " Wins with " << card_total << endl;
-			bank += 2*bet;
-			return 1;
-
+			bank += bet;
+			if(card_total == 21)
+			{
+				bank +=(bet/2);
+			}
 		}
 		else if(card_total == theDealer.dealer_cardtotal)
 		{

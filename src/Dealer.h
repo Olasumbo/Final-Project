@@ -33,4 +33,4 @@ class Dealer
 };
 
 
-#endif /* DEALER_H_ */
+#endif /* DEALER_H_ */   
