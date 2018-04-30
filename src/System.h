@@ -22,14 +22,16 @@ using namespace std;
 
 class System : public Player
 {
+
 private:
 
 
 public:
 	System();
 	virtual ~System();
-	char choice();
-	void start();
+	char choice(Deck theDeck);
+	void start(Deck theDeck);
+	void initBet();
 
 };
 

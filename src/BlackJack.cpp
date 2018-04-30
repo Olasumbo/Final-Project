@@ -21,7 +21,9 @@ using namespace std;
 int main()
 {
 	int num_player;
-	vector <int> Players;
+	int counter = 0;
+	vector < Player> Players;
+	Deck theDeck;
 
 	cout << "" << endl; // prints 
 	cout << "Welcome to Casino 3220, Lets Play some BlackJack" << endl; // prints
@@ -30,35 +32,56 @@ int main()
 	cin >> num_player;
 	while(num_player >= 4)
 	{
-		cout << "You can only play with a Maximum of 5 People including the Computer" << endl;
+		cout << "You can only play with a Maximum of 5 People including the Computer"
+				"You only have three trials to pick number of players"<< endl;
 		cin >> num_player;
+		counter++;
+		if ( counter == 3 )
+		{
+			cout<<" Sorry, you really have to pay attention to instructions" << endl;
+			return 1;
+		}
 	}
 
-
-
-
-	/*for( int i = 0; i < num_players; i++ )
+	for( int i = 0; i < num_player; i++ ) // Amount of human playing in the game
 	{
-		Players.push_back( new Player() );
+		Player *batman = new Player();
+		Players.push_back(*batman);
 	}
-	Players.push_back( new System() );
+
+	for( Player foreachplayer : Players )// This will get the names of each players.
+	{
+		cout << "Enter your name" << endl;
+		cin >> foreachplayer.Playersname;
+	}
+
+	Player *computergame = new System();
+	Players.push_back(*computergame );
+	Dealer obj;
 
 
+	int gameNotOver;
 
 	while( gameNotOver )
 	{
-
-		foreach( Players )
+		for( Player foreachplayer : Players )
 		{
-			Player[i].makeChoice();
+			foreachplayer.initBet();
+			foreachplayer.choice(theDeck);
+			foreachplayer.player_hands();
+			foreachplayer.CheckWin(obj);
+			if(foreachplayer.CheckWin(obj) == 1)
+			{
+				return 0;
+			}
 		}
+		gameNotOver = obj.getdealerhand();
+	}
 
-		if( someone Won? )
-		{
-			FIESTA!!!!!
-		}
-
-	}*/
+	for( Player foreachplayer : Players )// This will get the names of each players.
+	{
+		delete &foreachplayer;
+	}
 
 	return 0;
 }

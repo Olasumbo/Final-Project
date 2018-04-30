@@ -28,7 +28,6 @@ class Player
 		vector<Card> hand;
 		int players_total;//Number of players
 		double bet, bank;
-		string Playersname; //player name
 		int cansplit();
 
 
@@ -42,9 +41,11 @@ class Player
 		void Stay();
 		void Double();
 		void Split();
-		void initBet();
-		virtual char choice();
+		virtual void initBet();
+		virtual char choice(Deck theDeck);
 		void Rule();
+		string Playersname; //player name
+		virtual ~Player();
 
 };
 
