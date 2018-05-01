@@ -30,20 +30,20 @@ class Card
 		{
 			SPADE = 0, HEART = 1, CLUB = 2, DIAMOND = 3
 		};
+		Card();
+		Card(Card::Rank cd_rank, Card::Suite cd_suit);
+		Card::Suite suit;
+		Card::Rank rank;
 
 		Card::Rank getRank();
 		Card::Suite getSuite();
-		void printCards();
+		void setRank(Card::Rank cd_rank );
 		char getSuiteChar();
 		int getValue();
-		void setRank( Card::Rank newRank );
-		Card(Suite theSuite, Rank theRank);
+		void printCards();
 
 	private:
-			Suite theSuite;
-			Rank theRank;
-			int suit;
-			int rank;
+
 };
 
 #endif

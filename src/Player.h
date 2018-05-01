@@ -19,6 +19,7 @@
 #include "Card.h"
 #include "Deck.h"
 #include "Dealer.h"
+//class Dealer;
 
 using namespace std;
 

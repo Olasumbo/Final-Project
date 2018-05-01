@@ -11,7 +11,8 @@
 #define DEALER_H_
 
 #include "Deck.h"
-#include "Player.h"
+//#include "Player.h"
+class Player; // forward declaration of Player
 
 using namespace std;
 

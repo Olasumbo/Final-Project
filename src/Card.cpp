@@ -8,10 +8,14 @@
 
 using namespace std;
 
-Card::Card(Suite theSuite, Rank theRank)
+Card::Card()
 {
-	suit = theSuite;
-	rank = theRank;
+
+}
+Card::Card(Card::Rank cd_rank, Card::Suite cd_suit)
+{
+	suit = cd_suit;
+	rank = cd_rank;
 }
 
 char Card::getSuiteChar()
@@ -20,9 +24,24 @@ char Card::getSuiteChar()
 	return john;
 }
 
+Card::Rank getRank()
+{
+	return rank;
+}
+
+Card::Suite getSuite()
+{
+	return suit;
+}
+
+void Card::setRank( Card::Rank cd_rank)
+{
+	rank = cd_rank;
+}
+
 void Card::printCards()
 {
-	switch( theRank )
+	switch( rank )
 	{
 		case ACE:
 			cout << "ACE";
@@ -69,14 +88,9 @@ void Card::printCards()
 	}
 }
 
-void Card::setRank( Card::Rank newRank )
-{
-	theRank = newRank;
-}
-
 int Card::getValue()
 {
-	switch( theRank )
+	switch( rank )
 	{
 		case ACE:
 			return 1;

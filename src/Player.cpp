@@ -123,9 +123,9 @@ int Player::player_hands() // This calculate the total number of the player's ha
 int Player::CheckWin(Dealer theDealer)
 {
 	// Check to see if player or system hand is 21
-	if(theDealer.dealer_cardtotal > 21)
+	if(theDealer.getdealercardtot() > 21)
 	{										//Dealer bust conditions
-		cout << "Dealer Busts with " << theDealer.dealer_cardtotal << endl;
+		cout << "Dealer Busts with " << theDealer.getdealercardtot() << endl;
 		if(card_total > 21)
 		{
 			cout << Playersname <<" Busts with " << card_total << endl;
@@ -139,7 +139,7 @@ int Player::CheckWin(Dealer theDealer)
 			return 1;
 		}
 	}
-	else if(theDealer.dealer_cardtotal == 21)
+	else if(theDealer.getdealercardtot() == 21)
 	{									//Dealer 21 conditions
 		if(card_total > 21)
 		{
@@ -165,19 +165,19 @@ int Player::CheckWin(Dealer theDealer)
 			cout << "Dealer Wins Over " << Playersname << endl;
 			bank -= bet;
 		}
-		else if(card_total > theDealer.dealer_cardtotal)
+		else if(card_total > theDealer.getdealercardtot())
 		{
 			cout << Playersname << " Wins with " << card_total << endl;
 			bank += 2*bet;
 			return 1;
 		}
-		else if(card_total == theDealer.dealer_cardtotal)
+		else if(card_total == theDealer.getdealercardtot())
 		{
 			cout << "Push at " << card_total << " For " << Playersname << endl;
 		}
 		else
 		{
-			cout << "Dealer Wins with " << theDealer.dealer_cardtotal << " Over " << Playersname << endl;
+			cout << "Dealer Wins with " << theDealer.getdealercardtot() << " Over " << Playersname << endl;
 			bank -= bet;
 		}
 	}

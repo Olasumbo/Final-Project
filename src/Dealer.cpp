@@ -2,7 +2,6 @@
 
 #include "Dealer.h"
 
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
