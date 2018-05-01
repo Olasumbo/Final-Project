@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+#ifndef SYSTEM_H_
+#define SYSTEM_H_
 #include "Card.h"
 #include "Deck.h"
 #include "Player.h"
@@ -15,9 +17,6 @@
 
 using namespace std;
 
-
-#ifndef SYSTEM_H_
-#define SYSTEM_H_
 
 
 class System : public Player

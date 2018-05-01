@@ -13,14 +13,14 @@
 #include <iterator>
 #include <chrono>
 
+#ifndef PLAYER_H_
+#define PLAYER_H_
+
 #include "Card.h"
 #include "Deck.h"
 #include "Dealer.h"
 
 using namespace std;
-
-#ifndef PLAYER_H_
-#define PLAYER_H_
 
 class Player
  {

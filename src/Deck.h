@@ -5,13 +5,12 @@
  *      Author: obaba
  */
 
-#include "Card.h"
-#include <vector>
-using namespace std;
-
 #ifndef DECK_H_
 #define DECK_H_
+#include "Card.h"
 
+#include <vector>
+using namespace std;
 
 class Deck
 {

@@ -6,7 +6,7 @@
  */
 
 #include "Player.h"
-#include "Dealer.h"
+
 
 Player::Player()
 {
@@ -129,17 +129,14 @@ int Player::CheckWin(Dealer theDealer)
 		if(card_total > 21)
 		{
 			cout << Playersname <<" Busts with " << card_total << endl;
-			cout << "Dealer Wins Over " << Playersname << endl;
+			cout << "You both Busted"<< endl;
 			bank -= bet;
 		}
 		else
 		{
 			cout << Playersname << " Wins" << endl;
-			bank += bet;
-			if(card_total == 21)
-			{
-				bank +=(bet/2);
-			}
+			bank += 2*bet;
+			return 1;
 		}
 	}
 	else if(theDealer.dealer_cardtotal == 21)
@@ -171,11 +168,8 @@ int Player::CheckWin(Dealer theDealer)
 		else if(card_total > theDealer.dealer_cardtotal)
 		{
 			cout << Playersname << " Wins with " << card_total << endl;
-			bank += bet;
-			if(card_total == 21)
-			{
-				bank +=(bet/2);
-			}
+			bank += 2*bet;
+			return 1;
 		}
 		else if(card_total == theDealer.dealer_cardtotal)
 		{

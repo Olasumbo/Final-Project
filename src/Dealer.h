@@ -1,4 +1,4 @@
-/*
+ /*
  * Dealer.h
  *
  *  Created on: Apr 5, 2018
@@ -7,10 +7,11 @@
 #include <vector>
 #include <iostream>
 
-#include "Card.h"
+#ifndef DEALER_H_
+#define DEALER_H_
+
 #include "Deck.h"
 #include "Player.h"
-#include "Dealer.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ using namespace std;
 class Dealer
 {
 	private:
-		//vector<int> hand;
+	
 		void Deal( Deck theDeck, Player P_hand);
 		int dealer_hand;
 		int dealer_cardtotal;
@@ -34,3 +35,5 @@ class Dealer
 		int getdealercardtot();
 };
 
+
+#endif
