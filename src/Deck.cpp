@@ -1,4 +1,5 @@
 #include "Deck.h"
+#include "Card.h"
 #include <vector>
 
 vector<Card> Deck::getDeck()
@@ -8,42 +9,24 @@ vector<Card> Deck::getDeck()
 
 void Deck::createDeck()
 {
-/*	for( 4 times ) //Each suit
-		for( 12 times) // Each number
-			create newCard ()
-			Deckholder.push_back(newCard);
-		end loop
-	end loop;*/
+	int i = 0, j = 0;
 	
-	//vector<Card> needAcard;
-	
-	int i=0, j=0;
-	
-	for(i=0; i<4; i++)
+	for(i = 0; i < 4; i++)
 	{	
-		//if(needAcard.getSuite())
-		for(j=0; j<13; j++)
+		for(j = 0; j < 13; j++)
 		{
-			//if(needAcard.getRank())
-			Deckholder.push_back(Card(i,j);
+			Deckholder.push_back( Card( (Card::Rank)i, (Card::Suite)j ) );
 		}
 	}
 }  
 
-void Deck::displayDeck()
+/*void Deck::displayDeck()
 {
-	int i=0;
-	
+	int i = 0;
 	cout << "\nThe size of the deck is " << Deckholder.size() << endl;
-	
-	for(i=0; i<Deckholder.size(); i++)
+	for(i = 0; i < Deckholder.size(); i++)
     {
         cout << Deckholder[i] << endl;
     }
-    cout << "\n" << endl;
-}
+}*/
 
-// vector<Card> Deck::usingDeck
-// {
-	// return Deckholder;
-// }

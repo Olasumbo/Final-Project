@@ -18,7 +18,7 @@ System::~System()
 
 char Player::choice(Deck theDeck)
 {
-	cout << " Hit, Stay, Double, Split or Exit ?" << endl;
+	cout << " Hit, Stay, Double, or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
 	char c = ' ';
 	cin >> c;
@@ -40,12 +40,6 @@ char Player::choice(Deck theDeck)
 	case 'd':
 	{
 		Double(); // if the player wants to
-		break;
-	}
-	case 'P':
-	case 'p':
-	{
-		cansplit();
 		break;
 	}
 	case 'E':

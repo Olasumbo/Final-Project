@@ -8,10 +8,10 @@
 
 using namespace std;
 
-Card::Card(int cardSuit, int cardRank) 
+Card::Card(Suite theSuite, Rank theRank)
 {
-	rank=cardRank;
-	suit=cardSuit;
+	suit = theSuite;
+	rank = theRank;
 }
 
 char Card::getSuiteChar()
@@ -20,20 +20,7 @@ char Card::getSuiteChar()
 	return john;
 }
 
-Card::Rank Card::getRank()
-{
-	theRank=rank;   //don't know if this works
-	return theRank;
-}
-
-Card::Suite Card::getSuite()
-{
-	theSuite=suite; //don't know if this works
-	return theSuite;
-}
-
-
-void Card::printCard()
+void Card::printCards()
 {
 	switch( theRank )
 	{

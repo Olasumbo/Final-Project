@@ -22,11 +22,10 @@ class Deck
 	public:
 		Deck() { num_cards = 52; };
 		~Deck() { };
+
 		vector<Card> getDeck();
 		void createDeck();
 		void displayDeck();
-		
-		//vector<Card> usingDeck;
 };
 
 

@@ -33,7 +33,7 @@ class Player
 
 	public:
 		int card_total; //player totals card
-		void Deal( Deck theDeck ); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
+		//void Deal( Deck theDeck ); // I need a place where all the cards are stored then iterate through it and deal a random 2 card.
 		Player();
 		void Hit( Deck theDeck );
 		int player_hands();
@@ -44,6 +44,7 @@ class Player
 		virtual void initBet();
 		virtual char choice(Deck theDeck);
 		void Rule();
+		vector<Card> gethand();
 		string Playersname; //player name
 		virtual ~Player();
 

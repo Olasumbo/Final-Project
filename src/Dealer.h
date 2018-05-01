@@ -9,28 +9,28 @@
 
 #include "Card.h"
 #include "Deck.h"
+#include "Player.h"
+#include "Dealer.h"
+
 using namespace std;
 
-#ifndef DEALER_H_
-#define DEALER_H_
 
 class Dealer
 {
 	private:
 		//vector<int> hand;
-		void Deal();
+		void Deal( Deck theDeck, Player P_hand);
+		int dealer_hand;
+		int dealer_cardtotal;
 		Deck mainDeck;
 
 	public:
 		Dealer() { };
 		~Dealer() { };
-		int dealer_hand;
-		int dealer_cardtotal;
-		void Shuffle();
+		void Shuffle(Deck theDeck);
+
 		//Accessor Functions
 		int getdealerhand();
 		int getdealercardtot();
 };
 
-
-#endif /* DEALER_H_ */   

@@ -6,6 +6,7 @@
  */
 
 #include "Player.h"
+#include "Dealer.h"
 
 Player::Player()
 {
@@ -14,39 +15,6 @@ Player::Player()
 	bet = 0;
 	bank = 1000;
 	Playersname = " ";
-}
-
-void Player::Deal( Deck theDeck )
-{
-	cerr << "Dealing Cards ......\n";
-
-	/*
-	 *
-	 * Alrighty, so there's just a bit of logic to work out here. Right now, this is what's happening:
-	 * 	You've created a loop that will run 52 times (for every card in the Deck).
-	 *
-	 * What you want is like what you told me the other day:
-	 * 	1. Load all the cards into Deck
-	 * 	2. Randomly select 2 cards, the easiest way to do that is going to be just generating a random number between 0-51.
-	 *
-	 */
-
-	//vector<Card> tempDeck;
-	int i, x;
-	for( i = 0; i < 2; i++ )
-	{
-		x = rand() % 52;
-		move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x, hand.begin() );
-	}
-
-	/*(for(auto i: Deck::Card)
-	{
-		hand.push_back(i);
-		hand.push_back(i);
-		Deck::Card.pop_back(); //I am not sure if this is write at all but what am tring to do is to deal to cards into the players hands,
-		Deck::Card.popback(); // then pop those cards off the total card vector
-	}*/
-
 }
 
 void Player::initBet()
@@ -75,46 +43,14 @@ void Player::initBet()
 	} while(bet == 0);
 }
 
-int Player::cansplit()
+vector<Card> Player::gethand()
 {
-	int count = 0;
-
-	for( auto i:hand )
-	{
-		if( i.getRank() == Card::TEN )
-		{
-			count++;
-		}
-		if( i.getRank() == Card::KING )
-		{
-			count++;
-		}
-		if( i.getRank() == Card::QUEEN)
-		{
-			count++;
-		}
-		if( i.getRank() == Card::JACK )
-		{
-			count++;
-		}
-	}
-
-	if ( count == 2 )
-	{
-		cout << "Split Accepted" << endl;
-		Split();
-
-	}
-	else
-	{
-		cout << "Sorry, You cannot Split your Hand" << endl;
-	}
-	return 0;
+	return hand;
 }
 
-char Player::choice()
+char Player::choice(Deck theDeck)
 {
-	cout << " Hit, Stay, Double, Split or Exit ?" << endl;
+	cout << " Hit, Stay, Double, or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
 	char c = ' ';
 	cin >> c;
@@ -136,12 +72,6 @@ char Player::choice()
 	case 'd':
 	{
 		Double(); // if the player wants to
-		break;
-	}
-	case 'P':
-	case 'p':
-	{
-		cansplit();
 		break;
 	}
 	case 'E':
@@ -169,7 +99,7 @@ int Player::player_hands() // This calculate the total number of the player's ha
 	for(auto i:hand)
 	{
 		cout << " players hand is" << endl;
-		i.printCard();
+		//i.printCard();
 		card_total += i.getValue();
 		cout << " players hand total = "<< card_total << endl;
 	}
@@ -190,7 +120,7 @@ int Player::player_hands() // This calculate the total number of the player's ha
 	return 0;
 }
 
-int Player::CheckWin(Dealer theDealer)//This is where the win, lose or busted will take place
+int Player::CheckWin(Dealer theDealer)
 {
 	// Check to see if player or system hand is 21
 	if(theDealer.dealer_cardtotal > 21)
@@ -274,22 +204,6 @@ void Player:: Double()
 	{
 		bet = ( bet * 2 );
 	}
-}
-
-void Player::Split()
-{
-	//If player_hand has an Ace and a JACK/Queen/King then they can split into two
-	vector<Card> splithand;
-	for(auto i = hand.begin(); i != hand.end();)
-	{
-		for(auto c: hand)//hand should only have 2 cards
-		{
-			splithand.push_back(c);
-		}
-		hand.erase(i);
-	}
-
-	// when we deal in this scenerio, we have to hit into both hand and split hand.
 }
 
 void Player::Rule()
