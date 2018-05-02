@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <iostream>
+#include <random>
 
 #include "Deck.h"
 #include "Card.h"

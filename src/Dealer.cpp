@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <random>
+
 //#include <vector>
 
 void Dealer::Shuffle(Deck theDeck)
@@ -37,6 +39,10 @@ void Dealer::Deal( Deck theDeck, vector<Card> P_hand)
 	for( i = 0; i < 2; i++ )
 	{
 		x = rand() % 52;
+		//hand.push_back( theDeck.getDeck()[x] );
+
+			/*cout << "Deleting Card" << endl;
+			theDeck.getDeck().erase( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x );*/
 		//move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x,P_hand.begin() );
 	}
 

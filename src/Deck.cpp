@@ -24,7 +24,7 @@ void Deck::createDeck()
 	/*
 				 * 0: Card( spade, 1 )
 				 * 1: Card( spade, 2 )
-				 * ...
+				 * .. .
 				 * 51: Card( hearts, 13 )
 				 */
 	//randomCard.getInfo();
