@@ -96,24 +96,23 @@ void Player:: Hit( Deck theDeck )
 
 int Player::player_hands() // This calculate the total number of the player's hand
 {
+	cout << "Players hand is\n";
 	for(auto i:hand)
 	{
-		cout << " players hand is" << endl;
-		//i.printCard();
-		card_total += i.getValue();
-		cout << " players hand total = "<< card_total << endl;
+		cout << i << endl;
+		card_total += i;
 	}
 	if(card_total > 21)
 	{
-		for(auto i:hand)
+		for(auto a: hand)
 		{
-			if( i.getRank() == Card::TEN )
+			if(a == 'A')
 			{
-				i.setRank( Card::ACE );
+				a = 1;
 			}
 			else
 			{
-				return 0;
+				a = 11;
 			}
 		}
 	}
@@ -215,8 +214,7 @@ void Player::Rule()
 	cout<< "\nAn ace is worth either 1 or 10 depending on your strategy.";
 	cout<< "\nCards 2 through 10 are their face value.";
 
-	cout<< "\n\nAs the dealer gains more cards, they must draw on 16 and stand on all 17's.";
-	cout<< "\nThen the player (YOU) can keep his/her hand as it is (stand) or take more cards from the";
+	cout<< "\nThen the player (YOU) can keep his/her hand as it is (stay) or take more cards from the";
 	cout<< "\ndeck (hit), one at a time, until either the player judges that the hand is strong";
 	cout<< "\nenough to go up against the dealer's hand and stands, or until it goes over 21, in";
 	cout<< "\nwhich case the player immediately loses (busts).";
@@ -234,7 +232,8 @@ void Player::Rule()
 	cout<< "\n\nIn this game, you can take as many cards as you want until you bust.";
 	cout<< "This rule may not be the same in all playing environments.";
 
-	//splitting and doubling down if we chose to allow gambling.
+	cout<< "\n\n********** K, J, Q = 10\n";
+
 }
 
 

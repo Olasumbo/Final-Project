@@ -10,13 +10,25 @@ using namespace std;
 
 Card::Card()
 {
-
 }
 
 Card::Card(string Rank, char Suite)
 {
-	x_Rank = Rank;
-	x_Suite = Suite;
+
+}
+
+char Card::getValue()
+{
+	if( value == 11 )
+	{
+		return "J";
+	}
+	else if( value == 12)
+	{
+		return "Q";
+	}
+
+	return ( char ) value;
 }
 
 /*void getcard(Card::Rank cd_rank, Card::Suite cd_suit )
@@ -45,55 +57,6 @@ void Card::setRank( Card::Rank cd_rank)
 {
 	rank = cd_rank;
 }*/
-
-void Card::printCards()
-{
-	switch( rank )
-	{
-		case ACE:
-			cout << "ACE";
-			break;
-		case TWO:
-			cout <<  "TWO";
-			break;
-		case THREE:
-			cout <<  "THREE";
-			break;
-		case FOUR:
-			cout <<  "FOUR";
-			break;
-		case FIVE:
-			cout <<  "FIVE";
-			break;
-		case SIX:
-			cout <<  "SIX";
-			break;
-		case SEVEN:
-			cout <<  "SEVEN";
-			break;
-		case EIGHT:
-			cout <<  "EIGHT";
-			break;
-		case NINE:
-			cout <<  "NINE";
-			break;
-		case TEN:
-			cout <<  "SOFT ACE";
-			break;
-		case JACK:
-			cout <<  "JACK";
-			break;
-		case QUEEN:
-			cout <<  "QUEEN";
-			break;
-		case KING:
-			cout <<  "KING";
-			break;
-		default:
-			cout <<  "FAILURE!!!";
-			break;
-	}
-}
 
 /*
 int Card::getValue()
@@ -132,3 +95,4 @@ int Card::getValue()
 }
 
 */
+

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <ostream>
+#include <vector>
+
 using namespace std;
 
 
@@ -11,17 +13,54 @@ using namespace std;
 class Card
 {
 private:
-	/*vector<int> Rank = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-	//vector<int> Suite = { 0, 1, 2, 3};
-	*/
-	string x_Rank;
-	char x_Suite;
+
+
+	string value;
+	string suit;
+
+
+	//vector<string> card = {"2", "3", "4", "5", "6", "7", "8", "9", "1", "10", "10", "10", "11"};
+
+
+	/*vector<string> Heart = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+	vector<string> Diamond = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+	vector<string> Club = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};*/
 
 public:
 	~Card() {};
 	Card();
 	Card(string Rank, char Suite);
-	void printCards();
+	const vector<string>& getClub() const {
+			return Club;
+		}
+
+		void setClub(const vector<string>& club) {
+			Club = club;
+		}
+
+		const vector<string>& getDiamond() const {
+			return Diamond;
+		}
+
+		void setDiamond(const vector<string>& diamond) {
+			Diamond = diamond;
+		}
+
+		const vector<string>& getHeart() const {
+			return Heart;
+		}
+
+		void setHeart(const vector<string>& heart) {
+			Heart = heart;
+		}
+
+		const vector<string>& getSpade() const {
+			return Spade;
+		}
+
+		void setSpade(const vector<string>& spade) {
+			Spade = spade;
+		}
 
 	/*enum Rank
 		{
@@ -54,22 +93,5 @@ public:
 	//void setRank(Card::Rank cd_rank );
 	//char getSuiteChar();
 	//int getValue();
-	const vector<string>& getRank() const {
-		return Rank;
-	}
-
-	void setRank(const vector<string>& rank = { "2", "3", "4", "5", "6", "7",
-			"8", "9", "10", "J", "Q", "K", "A" }) {
-		Rank = rank;
-	}
-
-	const vector<char>& getSuite() const {
-		return Suite;
-	}
-
-	void setSuite(const vector<char>& suite = { 'h', 'd', 'c', 's' }) {
-		Suite = suite;
-	}
 };
-
 #endif

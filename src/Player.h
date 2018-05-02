@@ -30,8 +30,6 @@ class Player
 		vector<Card> hand;
 		int players_total;//Number of players
 		double bet, bank;
-		int cansplit();
-
 
 	public:
 		int card_total; //player totals card
