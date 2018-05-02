@@ -60,7 +60,7 @@ int main()
 	Dealer obj;
 
 
-	int gameNotOver;
+	int gameNotOver = 0;
 
 	while( gameNotOver )
 	{
@@ -69,8 +69,8 @@ int main()
 			foreachplayer.initBet();
 			foreachplayer.choice(theDeck);
 			foreachplayer.player_hands();
-			foreachplayer.CheckWin(obj);
-			if(foreachplayer.CheckWin(obj) == 1)
+//			foreachplayer.CheckWin(obj.getdealerhand());
+			if(foreachplayer.CheckWin(obj.getdealerhand()) == 1)
 			{
 				return 0;
 			}

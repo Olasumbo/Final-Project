@@ -10,12 +10,13 @@ vector<Card> Deck::getDeck()
 void Deck::createDeck()
 {
 	int i = 0, j = 0;
+//	Card
 	
 	for(i = 0; i < 4; i++)
 	{	
 		for(j = 0; j < 13; j++)
 		{
-			Deckholder.push_back( Card( (Card::Rank)i, (Card::Suite)j ) );
+//			Deckholder.push_back();
 		}
 	}
 }  

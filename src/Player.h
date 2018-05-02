@@ -4,6 +4,10 @@
  *  Created on: Apr 5, 2018
  *      Author: obaba
  */
+
+#ifndef PLAYER_H_
+#define PLAYER_H_
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -13,12 +17,9 @@
 #include <iterator>
 #include <chrono>
 
-#ifndef PLAYER_H_
-#define PLAYER_H_
-
 #include "Card.h"
 #include "Deck.h"
-#include "Dealer.h"
+//#include "Dealer.h"
 //class Dealer;
 
 using namespace std;
@@ -38,7 +39,7 @@ class Player
 		Player();
 		void Hit( Deck theDeck );
 		int player_hands();
-		int CheckWin(Dealer theDealer);
+		int CheckWin(int theDealerCardsSum);
 		void Stay();
 		void Double();
 		void Split();
@@ -46,8 +47,9 @@ class Player
 		virtual char choice(Deck theDeck);
 		void Rule();
 		vector<Card> gethand();
+//		int gethandsum(vector<Card> theDealerCardsSum);
 		string Playersname; //player name
-		virtual ~Player();
+		virtual ~Player(){}
 
 };
 

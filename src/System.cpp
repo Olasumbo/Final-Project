@@ -16,7 +16,7 @@ System::~System()
 
 }
 
-char Player::choice(Deck theDeck)
+char System::choice(Deck theDeck)
 {
 	cout << " Hit, Stay, Double, or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
@@ -84,7 +84,7 @@ void System:: start(Deck theDeck)
 
 }
 
-void Player::initBet()
+void System::initBet()
 {
 	bet = 0;
 	if(bank == 0)

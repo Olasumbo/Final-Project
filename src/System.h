@@ -4,12 +4,14 @@
  *  Created on: Apr 10, 2018
  *      Author: obaba
  */
+#ifndef SYSTEM_H_
+#define SYSTEM_H_
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-#ifndef SYSTEM_H_
-#define SYSTEM_H_
+
 #include "Card.h"
 #include "Deck.h"
 #include "Player.h"

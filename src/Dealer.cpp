@@ -6,16 +6,19 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+//#include <vector>
 
 void Dealer::Shuffle(Deck theDeck)
 {
 	int x;
 	srand(time(NULL));
 	x = rand() % 52;
-	random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().begin(), x );
+	vector<Card> tmpCards = theDeck.getDeck();
+//	random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().end(), x );
+	random_shuffle(tmpCards.begin(), tmpCards.end(), x);
 }
 
-void Dealer::Deal( Deck theDeck, Player P_hand)
+void Dealer::Deal( Deck theDeck, vector<Card> P_hand)
 {
 	cerr << "Dealing Cards ......\n";
 
@@ -34,7 +37,7 @@ void Dealer::Deal( Deck theDeck, Player P_hand)
 	for( i = 0; i < 2; i++ )
 	{
 		x = rand() % 52;
-		move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x,P_hand.gethand().begin() );
+		move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x,P_hand.begin() );
 	}
 
 	/*(for(auto i: Deck::Card)

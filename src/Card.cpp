@@ -12,10 +12,15 @@ Card::Card()
 {
 
 }
-Card::Card(Card::Rank cd_rank, Card::Suite cd_suit)
+
+/*void getcard(Card::Rank cd_rank, Card::Suite cd_suit )
 {
 	suit = cd_suit;
 	rank = cd_rank;
+}*/
+Card:: Card(int rank, int suite)
+{
+
 }
 
 char Card::getSuiteChar()

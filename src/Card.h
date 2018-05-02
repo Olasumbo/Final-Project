@@ -1,16 +1,19 @@
+#ifndef CARD_CONST
+#define CARD_CONST
+
 #include <iostream>
 #include <string>
 #include <ostream>
 using namespace std;
 
-#ifndef CARD_CONST
-#define CARD_CONST
+
 
 class Card
 {
 	public:
 		~Card() {};
-		enum Rank
+
+		/*enum Rank
 		{
 			ACE = 1,
 			TWO = 2,
@@ -29,11 +32,13 @@ class Card
 		enum Suite
 		{
 			SPADE = 0, HEART = 1, CLUB = 2, DIAMOND = 3
-		};
+		};*/
 		Card();
-		Card(Card::Rank cd_rank, Card::Suite cd_suit);
 		Card::Suite suit;
 		Card::Rank rank;
+		Card(int rank, int suite);
+
+		void getcard(Card::Rank cd_rank, Card::Suite cd_suit );
 
 		Card::Rank getRank();
 		Card::Suite getSuite();
