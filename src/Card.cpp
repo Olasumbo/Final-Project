@@ -13,14 +13,16 @@ Card::Card()
 
 }
 
+Card::Card(string Rank, char Suite)
+{
+	x_Rank = Rank;
+	x_Suite = Suite;
+}
+
 /*void getcard(Card::Rank cd_rank, Card::Suite cd_suit )
 {
 	suit = cd_suit;
 	rank = cd_rank;
-}*/
-Card:: Card(int rank, int suite)
-{
-
 }
 
 char Card::getSuiteChar()
@@ -42,7 +44,7 @@ Card::Suite getSuite()
 void Card::setRank( Card::Rank cd_rank)
 {
 	rank = cd_rank;
-}
+}*/
 
 void Card::printCards()
 {
@@ -93,6 +95,7 @@ void Card::printCards()
 	}
 }
 
+/*
 int Card::getValue()
 {
 	switch( rank )
@@ -128,3 +131,4 @@ int Card::getValue()
 	}
 }
 
+*/
