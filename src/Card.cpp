@@ -8,91 +8,79 @@
 
 using namespace std;
 
-Card::Card()
+Card::Card( int _value, int _suit)
 {
+	value = _value;
+	suit = _suit;
 }
 
-Card::Card(string Rank, char Suite)
-{
-
-}
-
-char Card::getValue()
-{
-	if( value == 11 )
-	{
-		return "J";
-	}
-	else if( value == 12)
-	{
-		return "Q";
-	}
-
-	return ( char ) value;
-}
-
-/*void getcard(Card::Rank cd_rank, Card::Suite cd_suit )
-{
-	suit = cd_suit;
-	rank = cd_rank;
-}
-
-char Card::getSuiteChar()
-{
-	char john = 'c';
-	return john;
-}
-
-Card::Rank getRank()
-{
-	return rank;
-}
-
-Card::Suite getSuite()
-{
-	return suit;
-}
-
-void Card::setRank( Card::Rank cd_rank)
-{
-	rank = cd_rank;
-}*/
-
-/*
 int Card::getValue()
 {
-	switch( rank )
-	{
-		case ACE:
-			return 1;
-		case TWO:
-			return 2;
-		case THREE:
-			return 3;
-		case FOUR:
-			return 4;
-		case FIVE:
-			return 5;
-		case SIX:
-			return 6;
-		case SEVEN:
-			return 7;
-		case EIGHT:
-			return 8;
-		case NINE:
-			return 9;
-		case TEN:
-			return 10;
-		case JACK:
-			return 11;
-		case QUEEN:
-			return 12;
-		case KING:
-			return 13;
-		default:
-			return 0;
-	}
+	return value;
 }
 
-*/
+string Card::getNiceName()
+{
+	string nicename;
+	switch( value )
+	{
+	case 1:
+		nicename += "Ace";
+		break;
+	case 2:
+		nicename += "2";
+		break;
+	case 3:
+		nicename += "3";
+		break;
+	case 4:
+		nicename += "4";
+		break;
+	case 5:
+		nicename += "5";
+		break;
+	case 6:
+		nicename += "6";
+		break;
+	case 7:
+		nicename += "7";
+		break;
+	case 8:
+		nicename += "8";
+		break;
+	case 9:
+		nicename += "9";
+		break;
+	case 10:
+		nicename += "10";
+		break;
+	case 11:
+		nicename += "Jack";
+		break;
+	case 12:
+		nicename += "Queen";
+		break;
+	case 13:
+		nicename += "King";
+		break;
+	}
+	nicename += " of ";
 
+	switch( suit )
+	{
+	case 0:
+		nicename += "hearts";
+		break;
+	case 1:
+		nicename += "clubs";
+		break;
+	case 2:
+		nicename += "spades";
+		break;
+	case 3:
+		nicename += "diamonds";
+		break;
+	}
+
+	return nicename;
+}

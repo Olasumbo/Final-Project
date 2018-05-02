@@ -8,7 +8,7 @@
 
 System::System()
 {
-
+	Playersname = "Luis Rivera";
 }
 
 System::~System()

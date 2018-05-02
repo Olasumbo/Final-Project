@@ -8,60 +8,20 @@
 
 using namespace std;
 
-
-
 class Card
 {
 private:
-
-
-	string value;
-	string suit;
-
-
+	int value;
+	int suit;
 	//vector<string> card = {"2", "3", "4", "5", "6", "7", "8", "9", "1", "10", "10", "10", "11"};
-
-
 	/*vector<string> Heart = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 	vector<string> Diamond = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 	vector<string> Club = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};*/
 
 public:
 	~Card() {};
-	Card();
-	Card(string Rank, char Suite);
-	const vector<string>& getClub() const {
-			return Club;
-		}
-
-		void setClub(const vector<string>& club) {
-			Club = club;
-		}
-
-		const vector<string>& getDiamond() const {
-			return Diamond;
-		}
-
-		void setDiamond(const vector<string>& diamond) {
-			Diamond = diamond;
-		}
-
-		const vector<string>& getHeart() const {
-			return Heart;
-		}
-
-		void setHeart(const vector<string>& heart) {
-			Heart = heart;
-		}
-
-		const vector<string>& getSpade() const {
-			return Spade;
-		}
-
-		void setSpade(const vector<string>& spade) {
-			Spade = spade;
-		}
-
+	Card( int _value, int _suit);
+	//Card(string Rank, char Suite);
 	/*enum Rank
 		{
 			ACE = 1,
@@ -92,6 +52,7 @@ public:
 	//Card::Suite getSuite();
 	//void setRank(Card::Rank cd_rank );
 	//char getSuiteChar();
-	//int getValue();
+	int getValue();
+	string getNiceName();
 };
 #endif

@@ -12,10 +12,12 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
+#include <utility>
+#include <algorithm>
 #include <list>
 #include <iterator>
 #include <chrono>
+#include <bits/stdc++.h>
 
 #include "Card.h"
 #include "Deck.h"
@@ -27,7 +29,7 @@ using namespace std;
 class Player
  {
 	protected:
-		vector<Card> hand;
+		vector<Card*> hand;
 		int players_total;//Number of players
 		double bet, bank;
 
@@ -44,8 +46,7 @@ class Player
 		virtual void initBet();
 		virtual char choice(Deck theDeck);
 		void Rule();
-		vector<Card> gethand();
-//		int gethandsum(vector<Card> theDealerCardsSum);
+		vector<Card*> gethand();
 		string Playersname; //player name
 		virtual ~Player(){}
 

@@ -13,9 +13,9 @@ void Dealer::Shuffle(Deck theDeck)
 	int x;
 	srand(time(NULL));
 	x = rand() % 52;
-	vector<Card> tmpCards = theDeck.getDeck();
-//	random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().end(), x );
-	random_shuffle(tmpCards.begin(), tmpCards.end(), x);
+	vector<Card*> tmpCards = theDeck.getDeck();
+    //random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().end(), x );
+	//random_shuffle(tmpCards.begin(), tmpCards.end(), x);
 }
 
 void Dealer::Deal( Deck theDeck, vector<Card> P_hand)
@@ -37,7 +37,7 @@ void Dealer::Deal( Deck theDeck, vector<Card> P_hand)
 	for( i = 0; i < 2; i++ )
 	{
 		x = rand() % 52;
-		move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x,P_hand.begin() );
+		//move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x,P_hand.begin() );
 	}
 
 	/*(for(auto i: Deck::Card)

@@ -13,7 +13,7 @@ Player::Player()
 	players_total = 0;
 	card_total = 0;
 	bet = 0;
-	bank = 1000;
+	bank = 1000.00;
 	Playersname = " ";
 }
 
@@ -27,7 +27,7 @@ void Player::initBet()
 
 	do
 	{
-		cout << setprecision(3) << "Current balance For " << Playersname << " is " << bank << endl;
+		cout << "Current balance For " << Playersname << " is " << bank << endl;
 		cout<<"How much would you like to bet? Enter amount now: ";
 		cin >> bet;
 		cin.clear();
@@ -43,13 +43,15 @@ void Player::initBet()
 	} while(bet == 0);
 }
 
-vector<Card> Player::gethand()
+vector<Card*> Player::gethand()
 {
 	return hand;
 }
 
-char Player::choice(Deck theDeck)
+char Player::choice( Deck theDeck )
 {
+	//cout << "There are " << theDeck.getDeck().size() << " cards in the deck" << endl;
+
 	cout << " Hit, Stay, Double, or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
 	char c = ' ';
@@ -59,7 +61,8 @@ char Player::choice(Deck theDeck)
 	case 'H':
 	case 'h':
 	{
-		Hit(theDeck); // This passes the deck into the function
+		cout << "Hitting i!" << endl;
+		Hit( theDeck ); // This passes the deck into the function
 		break;
 	}
 	case 'S':
@@ -83,15 +86,30 @@ char Player::choice(Deck theDeck)
 	default:
 			cout << "Invalid Selection. Please try Again." << endl;
 	}
+
+	cout << "choices have been made. uuups " << endl;
 	return 0;
 }
 
 void Player:: Hit( Deck theDeck )
 {
+	cout << "About to get hit" << endl;
+
 	//Deal 1 card at a time to player or system
 	int x;
 	x = rand() % 52;
-	move( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x, hand.begin() );
+
+	//cout << "Random number: " << x << endl;
+	//cout << "Random card: " << theDeck.getDeck()[x]->getNiceName() << endl;
+	hand.push_back( theDeck.getDeck()[x] );
+
+	cout << "Deleting Card" << endl;
+	theDeck.getDeck().erase( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x );
+
+	cout << "You got hit with the " << hand[hand.size() - 1]->getNiceName() << endl;
+
+	//move( theDeck.getDeck().begin(), theDeck.getDeck().begin() + x, hand.begin() + 1 );
+
 }
 
 int Player::player_hands() // This calculate the total number of the player's hand
@@ -99,34 +117,24 @@ int Player::player_hands() // This calculate the total number of the player's ha
 	cout << "Players hand is\n";
 	for(auto i:hand)
 	{
-		cout << i << endl;
-		card_total += i;
-	}
-	if(card_total > 21)
-	{
-		for(auto a: hand)
+
+		if(i->getValue() == 1 && card_total+11 > 21)
 		{
-			if(a == 'A')
-			{
-				a = 1;
-			}
-			else
-			{
-				a = 11;
-			}
+			card_total += 1;
+		}
+		else if(i->getValue() == 1 && card_total+11 <= 21)
+		{
+			card_total += 11;
+		}
+		else
+		{
+			cout << i->getNiceName() << endl;
+			card_total += i->getValue();
 		}
 	}
 	return 0;
 }
-//int Player::gethandsum(vector<Card> theDealerCardsSum)
-//{
-//	int sum_of_elems = 0;
-//	for (auto& n : theDealerCardsSum)
-//	{
-//		 sum_of_elems = sum_of_elems + n;
-//	}
-//	return sum_of_elems;
-//}
+
 int Player::CheckWin(int theDealerCardsSum)
 {
 	// Check to see if player or system hand is 21
@@ -231,8 +239,6 @@ void Player::Rule()
 
 	cout<< "\n\nIn this game, you can take as many cards as you want until you bust.";
 	cout<< "This rule may not be the same in all playing environments.";
-
-	cout<< "\n\n********** K, J, Q = 10\n";
 
 }
 

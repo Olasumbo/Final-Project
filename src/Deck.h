@@ -15,20 +15,17 @@ using namespace std;
 class Deck
 {
 	private:
-		vector<Card> Deckholder;
+		vector<Card*> Deckholder;
 		int num_cards;
 
 	public:
 		Deck() { num_cards = 52; };
 		~Deck() { };
 
-		vector<Card> getDeck();
+		vector<Card*> getDeck();
 		void createDeck();
 		void displayDeck();
 };
-
-
-
 
 
 #endif /* DECK_H_ */   
