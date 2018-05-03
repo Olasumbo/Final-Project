@@ -10,6 +10,8 @@
 #include <vector>
 #include <iostream>
 #include <random>
+#include <algorithm>
+#include <random>
 
 #include "Deck.h"
 #include "Card.h"
@@ -22,8 +24,6 @@ using namespace std;
 class Dealer
 {
 	private:
-	
-		void Deal( Deck theDeck, vector<Card> P_hand);
 		int dealer_hand;
 		int dealer_cardtotal;
 		Deck mainDeck;
@@ -31,7 +31,8 @@ class Dealer
 	public:
 		Dealer() { };
 		~Dealer() { };
-		void Shuffle(Deck theDeck);
+		void shuffle_vector( Deck * D_holder );
+		void Deal( Deck * theDeck, vector<Card*> P_hand);
 
 		//Accessor Functions
 		int getdealerhand();

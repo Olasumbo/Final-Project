@@ -4,9 +4,14 @@
 
 vector<Card*> Deck::getDeck()
 {
-	return Deckholder;
+	return *Deckholder;
 }
 
+
+void Deck::changeDeck( vector<Card*> * leeroyJenkins )
+{
+	Deckholder = leeroyJenkins;
+}
 
 void Deck::createDeck()
 {
@@ -17,7 +22,7 @@ void Deck::createDeck()
 		for( j = 1; j <= 13; j++ )
 		{
 			Card * newCard = new Card( j, i );
-			Deckholder.push_back( newCard );
+			Deckholder->push_back( newCard );
 		}
 	}
 
@@ -54,8 +59,8 @@ void Deck::createDeck()
 
 void Deck::displayDeck()
 {
-	cout << "\nThe size of the deck is " << Deckholder.size() << endl;
-	for(auto i: Deckholder)
+	cout << "\nThe size of the deck is " << Deckholder->size() << endl;
+	for(auto i: *Deckholder)
 	{
         cout << i->getNiceName() << endl;
 	}

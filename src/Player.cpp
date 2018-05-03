@@ -48,7 +48,7 @@ vector<Card*> Player::gethand()
 	return hand;
 }
 
-char Player::choice( Deck theDeck )
+char Player::choice( Deck * theDeck )
 {
 	//cout << "There are " << theDeck.getDeck().size() << " cards in the deck" << endl;
 
@@ -91,7 +91,7 @@ char Player::choice( Deck theDeck )
 	return 0;
 }
 
-void Player:: Hit( Deck theDeck )
+void Player:: Hit( Deck * theDeck )
 {
 	cout << "About to get hit" << endl;
 
@@ -101,10 +101,10 @@ void Player:: Hit( Deck theDeck )
 
 	//cout << "Random number: " << x << endl;
 	//cout << "Random card: " << theDeck.getDeck()[x]->getNiceName() << endl;
-	hand.push_back( theDeck.getDeck()[x] );
+	hand.push_back( theDeck->getDeck()[x] );
 
 	cout << "Deleting Card" << endl;
-	theDeck.getDeck().erase( theDeck.getDeck().begin() + x, theDeck.getDeck().begin() + x );
+	theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
 
 	cout << "You got hit with the " << hand[hand.size() - 1]->getNiceName() << endl;
 

@@ -30,8 +30,8 @@ private:
 public:
 	System();
 	virtual ~System();
-	char choice(Deck theDeck);
-	void start(Deck theDeck);
+	char choice(Deck * theDeck);
+	void start(Deck * theDeck);
 	void initBet();
 
 };

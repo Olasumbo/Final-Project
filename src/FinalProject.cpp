@@ -9,6 +9,8 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <algorithm>
+#include <random>
 
 #include "Card.h"
 #include "Deck.h"
@@ -22,16 +24,12 @@ using namespace std;
 int main( void )
 {
 	srand (time(NULL));
-
-	/*Deck x_deck;
-	x_deck.createDeck();
-	x_deck.displayDeck();
-*/
+	//x_deck.displayDeck();
 	int num_player;
 	int counter = 0;
 	vector <Player*> Players;
-	Deck theDeck;
-	theDeck.createDeck();
+	Deck * theDeck = new Deck();
+	theDeck->createDeck();
 
 
 	cout << "" << endl; // prints 
@@ -64,7 +62,7 @@ int main( void )
 	{
 		cout << "Enter your name: " << endl;
 		cin >> foreachplayer->Playersname;
-		cout << foreachplayer->Playersname << endl;
+		//cout << foreachplayer->Playersname << endl;
 	}
 
 	Player *computergame = (Player * ) ( new System() );
@@ -77,35 +75,47 @@ int main( void )
 		cout << foreachplayer->Playersname << endl;
 	}
 
-	cout << "The game is about to begin!!" << endl;
-
-
 	int gameNotOver = 1;
 
 	while( gameNotOver )
 	{
+		cout << " Error the life\n";
+		obj.shuffle_vector( theDeck ); // Shuffles the card
+
+
+		//auto rng = default_random_engine { };
+		//shuffle( theDeck.getDeck().begin(), theDeck.getDeck().begin(), rng );
+		//random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().end() );
+
+		cout << " Error e\n";
+
 		for( Player * foreachplayer : Players )
 		{
+			//start(theDeck)
 			cout << "It is now " << foreachplayer->Playersname << "'s turn" << endl;
-
 			cout << "Get initial Bet! P: " << foreachplayer->Playersname  << endl;
+
 			foreachplayer->initBet();
+			obj.Deal( theDeck ,foreachplayer->gethand() );
+
 			cout << "Get choice! P: " << foreachplayer->Playersname  << endl;
 			foreachplayer->choice(theDeck);
+
 			cout << "Get hands! P: " << foreachplayer->Playersname  << endl;
 			foreachplayer->player_hands();
+
 			cout << "Check if win! P: " << foreachplayer->Playersname  << endl;
 			foreachplayer->CheckWin(obj.getdealerhand());
+
 			if(foreachplayer->CheckWin(obj.getdealerhand()) == 1)
 			{
 				return 0;
 			}
 		}
 
-		//gameNotOver = obj.getdealerhand();
+		gameNotOver = obj.getdealerhand();
 	}
-
-	for( Player * foreachplayer : Players )// This will get the names of each players.
+	for( Player * foreachplayer : Players )
 	{
 		delete foreachplayer;
 	}

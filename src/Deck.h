@@ -10,21 +10,24 @@
 #include "Card.h"
 
 #include <vector>
+#include <algorithm>
+#include <random>
 using namespace std;
 
 class Deck
 {
 	private:
-		vector<Card*> Deckholder;
-		int num_cards;
-
 	public:
 		Deck() { num_cards = 52; };
 		~Deck() { };
+		vector<Card*> * Deckholder;
+		int num_cards;
+
 
 		vector<Card*> getDeck();
 		void createDeck();
 		void displayDeck();
+		void changeDeck( vector<Card*> * leeroyJenkins );
 };
 
 

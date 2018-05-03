@@ -16,9 +16,9 @@ System::~System()
 
 }
 
-char System::choice(Deck theDeck)
+char System::choice(Deck * theDeck)
 {
-	cout << " Hit, Stay, Double, or Exit ?" << endl;
+	cout << "Hit, Stay, Double, or Exit ?" << endl;
 	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
 	char c = ' ';
 	cin >> c;
@@ -54,7 +54,7 @@ char System::choice(Deck theDeck)
 	return 0;
 }
 
-void System:: start(Deck theDeck)
+void System:: start(Deck * theDeck)
 {
 	int n;
 	//cout << "******Game Start!******"<<endl;
