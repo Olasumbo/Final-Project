@@ -129,18 +129,19 @@ void Dealer:: shuffle_vector( Deck * D_holder )
         }
 
 }
-void Dealer::Deal( Deck * theDeck, vector<Card*> P_hand)
+void Dealer::Deal( Deck * theDeck, Player * player )
 {
 	int x, i;
 
 	for(int i = 0; i < 2; i++)
 	{
 		x = rand() % 52;
-	Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
-	P_hand.push_back(trial);
+	//Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
+	//P_hand.push_back(trial);
+		player->addToHand( theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite() );
 
 	//theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
-	cout << "You got hit with the " << P_hand[P_hand.size() - 1]->getNiceName() << endl;
+		//cout << "You got hit with the " << P_hand[P_hand.size() - 1]->getNiceName() << endl;
 	}
 	//move( theDeck.getDeck().begin(), theDeck.getDeck().begin() + x, hand.begin() + 1 );
 /*	int i, x;

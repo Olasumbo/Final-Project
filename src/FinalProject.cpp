@@ -30,12 +30,18 @@ int main( void )
 	vector <Player*> Players;
 	Deck * theDeck = new Deck();
 	theDeck->createDeck();
+	Player * batman;
+	Dealer obj;
 
 
 	cout << "" << endl; // prints 
 	cout << "Welcome to Casino 3220, Lets Play some BlackJack" << endl; // prints
-	//cout << "***********************GAME ON*******************************" << endl;
-	cout << "How many Player would you like to play with today" << endl;
+	cout << "Rules of the Game\n" << endl;
+		batman->Rule();
+
+	cout << "\n\n***********************GAME ON*******************************" << endl;
+
+	cout << "\n\nHow many Player would you like to play with today" << endl;
 	cin >> num_player;
 	while(num_player >= 4)
 	{
@@ -50,26 +56,21 @@ int main( void )
 		}
 	}
 
-	Player * batman;
-
 	for( int i = 0; i < num_player; i++ ) // Amount of human playing in the game
 	{
 		batman = new Player();
 		Players.push_back(batman);
 	}
 
-
-	Dealer obj;
-
 	for( Player * foreachplayer : Players )// This will get the names of each players.
 	{
 		cout << "Enter your name: " << endl;
 		cin >> foreachplayer->Playersname;
-		cout << foreachplayer->Playersname << endl;
+		//cout << foreachplayer->Playersname << endl;
 		cout << "Get initial Bet! P: " << foreachplayer->Playersname  << endl;
 		foreachplayer->initBet();
 		//Dealing cards
-		obj.Deal( theDeck , foreachplayer->gethand());
+		obj.Deal( theDeck , foreachplayer );
 
 		//cout << foreachplayer->Playersname << endl;
 	}
@@ -77,7 +78,7 @@ int main( void )
 	Players.push_back( computergame );
 
 	int gameNotOver = 1;
-	obj.shuffle_vector( theDeck ); // Shuffles the card
+	obj.shuffle_vector(theDeck); // Shuffles the card
 	while( gameNotOver )
 	{
 		//cout << " Error the life\n";
@@ -89,24 +90,32 @@ int main( void )
 		for( Player * foreachplayer : Players )
 		{
 			//start(theDeck)
-			cout << "It is now " << foreachplayer->Playersname << "'s turn" << endl;
-			cout << "This are the cards in your hands" <<endl;
-			for(Card *c: foreachplayer->gethand())
+
+			if( foreachplayer->gameOver == 0 )
 			{
-				cout << c->getNiceName() << endl;
-			}
-			cout << "Get choice! P: " << foreachplayer->Playersname  << endl;
-			foreachplayer->choice(theDeck);
+				cout << "It is now " << foreachplayer->Playersname << "'s turn" << endl;
+				cout << "This are the cards in your hands (" << foreachplayer->getHandTotal() << ")" << endl;
 
-			cout << "Get hands! P: " << foreachplayer->Playersname  << endl;
-			foreachplayer->player_hands();
+				foreachplayer->showHand();
 
-			cout << "Check if win! P: " << foreachplayer->Playersname  << endl;
-			foreachplayer->CheckWin(obj.getdealerhand());
+				/*for(Card *c: foreachplayer->gethand())
+				{
+					cout << c->getNiceName() << endl;
+				}*/
 
-			if(foreachplayer->CheckWin(obj.getdealerhand()) == 1)
-			{
-				return 0;
+				cout << "Get choice! P: " << foreachplayer->Playersname  << endl;
+				foreachplayer->choice(theDeck);
+
+				cout << "Get hands! P: " << foreachplayer->Playersname  << endl;
+				foreachplayer->player_hands();
+
+				/*cout << "Check if win! P: " << foreachplayer->Playersname  << endl;
+				foreachplayer->CheckWin(obj.getdealerhand());*/
+
+				if(foreachplayer->CheckWin(obj.getdealerhand()) == 1)
+				{
+					foreachplayer->gameOver = 1;
+				}
 			}
 		}
 

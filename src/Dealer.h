@@ -32,7 +32,7 @@ class Dealer
 		Dealer() { };
 		~Dealer() { };
 		void shuffle_vector( Deck * D_holder );
-		void Deal( Deck * theDeck,vector<Card*> P_hand);
+		void Deal( Deck * theDeck, Player * player );
 
 		//Accessor Functions
 		int getdealerhand();

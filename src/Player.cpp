@@ -51,9 +51,11 @@ vector<Card*> Player::gethand()
 char Player::choice( Deck * theDeck )
 {
 	//cout << "There are " << theDeck.getDeck().size() << " cards in the deck" << endl;
-
-	cout << " Hit, Stay, Double, or Exit ?" << endl;
-	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
+	bool invalid_choice = false;
+do
+{
+	cout << "Hit, Stay, Double, or Exit?" << endl;
+	cout << "Press H to get a card\n,Press S to Stay\nPress D to Double\nPress P to Split\nE for Exit" << endl;
 	char c = ' ';
 	cin >> c;
 	switch(c)
@@ -61,7 +63,7 @@ char Player::choice( Deck * theDeck )
 	case 'H':
 	case 'h':
 	{
-		cout << "Hitting i!" << endl;
+		cout << "Hitting!!" << endl;
 		Hit( theDeck ); // This passes the deck into the function
 		break;
 	}
@@ -84,10 +86,10 @@ char Player::choice( Deck * theDeck )
 				break;
 	}
 	default:
+			invalid_choice = true;
 			cout << "Invalid Selection. Please try Again." << endl;
 	}
-
-	cout << "choices have been made. uuups " << endl;
+}while(invalid_choice);
 	return 0;
 }
 
@@ -101,14 +103,15 @@ void Player:: Hit( Deck * theDeck )
 
 	//cout << "Random number: " << x << endl;
 	//cout << "Random card: " << theDeck.getDeck()[x]->getNiceName() << endl;
-	Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
+	//Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
 	//hand.push_back( theDeck->getDeck()[x] );
-	hand.push_back(trial );
+	//hand.push_back(trial );
+	addToHand( theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite() );
 
 
 	cout << "Deleting Card" << endl;
 	//delete theDeck->getDeck()[x];
-	theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
+	//theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
 
 	cout << "You got hit with the " << hand[hand.size() - 1]->getNiceName() << endl;
 

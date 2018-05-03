@@ -19,7 +19,7 @@ System::~System()
 char System::choice(Deck * theDeck)
 {
 	cout << "Hit, Stay, Double, or Exit ?" << endl;
-	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n Press P to Split\n E for Exit" << endl;
+	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n E for Exit" << endl;
 	char c = ' ';
 	cin >> c;
 	switch(c)
@@ -52,36 +52,6 @@ char System::choice(Deck * theDeck)
 			cout << "Invalid Selection. Please try Again." << endl;
 	}
 	return 0;
-}
-
-void System:: start(Deck * theDeck)
-{
-	int n;
-	//cout << "******Game Start!******"<<endl;
-	cout << "1. View rules" << endl;
-	cout << "2. Play Blackjack" << endl;
-	cout << "3. Exit " << endl;
-
-	switch(n)
-	{
-	case 1:
-	{
-		Rule();
-		break;
-	}
-	case 2:
-	{
-		choice(theDeck);
-		break;
-	}
-	case 3:
-	{
-		exit(EXIT_SUCCESS);
-		break;
-	}
-	}
-	//choice();
-
 }
 
 void System::initBet()
