@@ -54,5 +54,6 @@ public:
 	//char getSuiteChar();
 	int getValue();
 	string getNiceName();
+	int getsuite();
 };
 #endif

@@ -58,46 +58,43 @@ int main( void )
 		Players.push_back(batman);
 	}
 
+
+	Dealer obj;
+
 	for( Player * foreachplayer : Players )// This will get the names of each players.
 	{
 		cout << "Enter your name: " << endl;
 		cin >> foreachplayer->Playersname;
+		cout << foreachplayer->Playersname << endl;
+		cout << "Get initial Bet! P: " << foreachplayer->Playersname  << endl;
+		foreachplayer->initBet();
+		//Dealing cards
+		obj.Deal( theDeck , foreachplayer->gethand());
+
 		//cout << foreachplayer->Playersname << endl;
 	}
-
 	Player *computergame = (Player * ) ( new System() );
 	Players.push_back( computergame );
-	Dealer obj;
-
-	cout << "Names: " << endl;
-	for( Player * foreachplayer : Players )// This will get the names of each players.
-	{
-		cout << foreachplayer->Playersname << endl;
-	}
 
 	int gameNotOver = 1;
-
+	obj.shuffle_vector( theDeck ); // Shuffles the card
 	while( gameNotOver )
 	{
-		cout << " Error the life\n";
-		obj.shuffle_vector( theDeck ); // Shuffles the card
-
-
+		//cout << " Error the life\n";
 		//auto rng = default_random_engine { };
 		//shuffle( theDeck.getDeck().begin(), theDeck.getDeck().begin(), rng );
 		//random_shuffle( theDeck.getDeck().begin(), theDeck.getDeck().end() );
 
-		cout << " Error e\n";
 
 		for( Player * foreachplayer : Players )
 		{
 			//start(theDeck)
 			cout << "It is now " << foreachplayer->Playersname << "'s turn" << endl;
-			cout << "Get initial Bet! P: " << foreachplayer->Playersname  << endl;
-
-			foreachplayer->initBet();
-			obj.Deal( theDeck ,foreachplayer->gethand() );
-
+			cout << "This are the cards in your hands" <<endl;
+			for(Card *c: foreachplayer->gethand())
+			{
+				cout << c->getNiceName() << endl;
+			}
 			cout << "Get choice! P: " << foreachplayer->Playersname  << endl;
 			foreachplayer->choice(theDeck);
 

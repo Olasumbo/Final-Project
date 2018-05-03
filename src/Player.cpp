@@ -101,9 +101,13 @@ void Player:: Hit( Deck * theDeck )
 
 	//cout << "Random number: " << x << endl;
 	//cout << "Random card: " << theDeck.getDeck()[x]->getNiceName() << endl;
-	hand.push_back( theDeck->getDeck()[x] );
+	Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
+	//hand.push_back( theDeck->getDeck()[x] );
+	hand.push_back(trial );
+
 
 	cout << "Deleting Card" << endl;
+	//delete theDeck->getDeck()[x];
 	theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
 
 	cout << "You got hit with the " << hand[hand.size() - 1]->getNiceName() << endl;

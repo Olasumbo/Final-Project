@@ -18,6 +18,10 @@ int Card::getValue()
 {
 	return value;
 }
+int Card:: getsuite()
+{
+	return suit;
+}
 
 string Card::getNiceName()
 {

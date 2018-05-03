@@ -20,7 +20,7 @@ class Deck
 	public:
 		Deck() { num_cards = 52; };
 		~Deck() { };
-		vector<Card*> * Deckholder;
+		vector<Card*> * Deckholder = new vector<Card*>;
 		int num_cards;
 
 
