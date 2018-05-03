@@ -1,4 +1,4 @@
- /*
+/*
  * Dealer.h
  *
  *  Created on: Apr 5, 2018
@@ -23,20 +23,20 @@ using namespace std;
 
 class Dealer
 {
-	private:
-		int dealer_hand;
-		int dealer_cardtotal;
-		Deck mainDeck;
+private:
+	int dealer_hand;
+	int dealer_cardtotal;
+	Deck mainDeck;
 
-	public:
-		Dealer() { };
-		~Dealer() { };
-		void shuffle_vector( Deck * D_holder );
-		void Deal( Deck * theDeck, Player * player );
+public:
+	Dealer() { };
+	~Dealer() { };
+	void shuffle_vector( Deck * D_holder );
+	void Deal( Deck * theDeck, Player * player );
 
-		//Accessor Functions
-		int getdealerhand();
-		int getdealercardtot();
+	//Accessor Functions
+	int getdealerhand();
+	int getdealercardtot();
 };
 
 

@@ -16,18 +16,18 @@ using namespace std;
 
 class Deck
 {
-	private:
-	public:
-		Deck() { num_cards = 52; };
-		~Deck() { };
-		vector<Card*> * Deckholder = new vector<Card*>;
-		int num_cards;
+private:
+public:
+	Deck() { num_cards = 52; };
+	~Deck() { };
+	vector<Card*> * Deckholder = new vector<Card*>;
+	int num_cards;
 
 
-		vector<Card*> getDeck();
-		void createDeck();
-		void displayDeck();
-		void changeDeck( vector<Card*> * leeroyJenkins );
+	vector<Card*> getDeck();
+	void createDeck();
+	void displayDeck();
+	void changeDeck( vector<Card*> * leeroyJenkins );
 };
 
 

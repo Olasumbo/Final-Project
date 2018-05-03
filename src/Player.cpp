@@ -52,44 +52,44 @@ char Player::choice( Deck * theDeck )
 {
 	//cout << "There are " << theDeck.getDeck().size() << " cards in the deck" << endl;
 	bool invalid_choice = false;
-do
-{
-	cout << "Hit, Stay, Double, or Exit?" << endl;
-	cout << "Press H to get a card\n,Press S to Stay\nPress D to Double\nPress P to Split\nE for Exit" << endl;
-	char c = ' ';
-	cin >> c;
-	switch(c)
+	do
 	{
-	case 'H':
-	case 'h':
-	{
-		cout << "Hitting!!" << endl;
-		Hit( theDeck ); // This passes the deck into the function
-		break;
-	}
-	case 'S':
-	case 's':
-	{
-		Stay();
-		break;
-	}
-	case 'D':
-	case 'd':
-	{
-		Double(); // if the player wants to
-		break;
-	}
-	case 'E':
-	case 'e':
-	{
-				exit(EXIT_SUCCESS);
-				break;
-	}
-	default:
+		cout << "Hit, Stay, Double, or Exit?" << endl;
+		cout << "Press H to get a card\n,Press S to Stay\nPress D to Double\nPress P to Split\nE for Exit" << endl;
+		char c = ' ';
+		cin >> c;
+		switch(c)
+		{
+		case 'H':
+		case 'h':
+		{
+			cout << "Hitting!!" << endl;
+			Hit( theDeck ); // This passes the deck into the function
+			break;
+		}
+		case 'S':
+		case 's':
+		{
+			Stay();
+			break;
+		}
+		case 'D':
+		case 'd':
+		{
+			Double(); // if the player wants to
+			break;
+		}
+		case 'E':
+		case 'e':
+		{
+			exit(EXIT_SUCCESS);
+			break;
+		}
+		default:
 			invalid_choice = true;
 			cout << "Invalid Selection. Please try Again." << endl;
-	}
-}while(invalid_choice);
+		}
+	}while(invalid_choice);
 	return 0;
 }
 

@@ -45,11 +45,11 @@ char System::choice(Deck * theDeck)
 	case 'E':
 	case 'e':
 	{
-				exit(EXIT_SUCCESS);
-				break;
+		exit(EXIT_SUCCESS);
+		break;
 	}
 	default:
-			cout << "Invalid Selection. Please try Again." << endl;
+		cout << "Invalid Selection. Please try Again." << endl;
 	}
 	return 0;
 }

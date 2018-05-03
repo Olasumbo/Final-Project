@@ -27,18 +27,18 @@ void Deck::createDeck()
 	}
 
 	/*
-				 * 0: Card( spade, 1 )
-				 * 1: Card( spade, 2 )
-				 * .. .
-				 * 51: Card( hearts, 13 )
-				 */
+	 * 0: Card( spade, 1 )
+	 * 1: Card( spade, 2 )
+	 * .. .
+	 * 51: Card( hearts, 13 )
+	 */
 	//randomCard.getInfo();
-		/*
-		 * Suite: Heart
-		 * Value: num
-		 */
+	/*
+	 * Suite: Heart
+	 * Value: num
+	 */
 
-  /*  vector<string> Rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+	/*  vector<string> Rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 	vector<char> Suite = {'h', 'd', 'c', 's'};
 
 	for(int i = 0; i < 4; i++)
@@ -62,7 +62,7 @@ void Deck::displayDeck()
 	cout << "\nThe size of the deck is " << Deckholder->size() << endl;
 	for(auto i: *Deckholder)
 	{
-        cout << i->getNiceName() << endl;
+		cout << i->getNiceName() << endl;
 	}
 }
 

@@ -33,11 +33,10 @@ int main( void )
 	Player * batman;
 	Dealer obj;
 
-
 	cout << "" << endl; // prints 
 	cout << "Welcome to Casino 3220, Lets Play some BlackJack" << endl; // prints
 	cout << "Rules of the Game\n" << endl;
-		batman->Rule();
+	batman->Rule();
 
 	cout << "\n\n***********************GAME ON*******************************" << endl;
 
@@ -118,13 +117,12 @@ int main( void )
 				}
 			}
 		}
-
 		gameNotOver = obj.getdealerhand();
+
 	}
 	for( Player * foreachplayer : Players )
 	{
 		delete foreachplayer;
 	}
-
 	return 0;
 }
