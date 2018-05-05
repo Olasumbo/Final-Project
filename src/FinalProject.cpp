@@ -42,6 +42,20 @@ int main( void )
 
 	cout << "\n\nHow many Player would you like to play with today" << endl;
 	cin >> num_player;
+	
+	try
+	{
+		if(cin.fail())
+		{
+			throw 1;
+		}
+	}
+	catch(int e)
+	{
+		cout << "\nYou did not enter in an integer variable. Program will terminate.\n\n";
+		return 0; 
+	}
+	
 	while(num_player >= 4)
 	{
 		cout << "You can only play with a Maximum of 5 People including the Computer"
