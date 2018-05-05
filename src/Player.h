@@ -67,6 +67,7 @@ public:
 	}
 	void clearHand(){ hand.clear(); }
 	int gethandSize() { return hand.size(); }
+	int CheckBust( int dealer_tot );
 	int getHandTotal()
 	{
 		int total = 0;

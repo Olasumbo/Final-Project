@@ -55,7 +55,7 @@ char Player::choice( Deck * theDeck )
 	do
 	{
 		cout << "Hit, Stay, Double, or Exit?" << endl;
-		cout << "Press H to get a card\n,Press S to Stay\nPress D to Double\nPress P to Split\nE for Exit" << endl;
+		cout << "Press H to get a card\nPress S to Stay\nPress D to Double\nE for Exit" << endl;
 		char c = ' ';
 		cin >> c;
 		switch(c)
@@ -109,7 +109,7 @@ void Player:: Hit( Deck * theDeck )
 	addToHand( theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite() );
 
 
-	cout << "Deleting Card" << endl;
+	//cout << "Deleting Card" << endl;
 	//delete theDeck->getDeck()[x];
 	//theDeck->getDeck().erase( theDeck->getDeck().begin() + x, theDeck->getDeck().begin() + x );
 
@@ -119,83 +119,77 @@ void Player:: Hit( Deck * theDeck )
 
 }
 
-int Player::player_hands() // This calculate the total number of the player's hand
+int Player::CheckBust( int dealer_tot )
 {
-	cout << "Players hand is\n";
-	for(auto i:hand)
-	{
 
-		if(i->getValue() == 1 && card_total+11 > 21)
-		{
-			card_total += 1;
-		}
-		else if(i->getValue() == 1 && card_total+11 <= 21)
-		{
-			card_total += 11;
-		}
-		else
-		{
-			cout << i->getNiceName() << endl;
-			card_total += i->getValue();
-		}
+	if( getHandTotal() > 21 )
+	{
+		cout << Playersname << " busts with " << getHandTotal() << endl;
+		return 1;
 	}
-	return 0;
+	else if( dealer_tot > 21 )
+	{
+		cout << "The Dealer busts with " << dealer_tot << endl;
+		return 1;
+	}
+
 }
 
 int Player::CheckWin(int theDealerCardsSum)
 {
-	// Check to see if player or system hand is 21
+	// Check to see if the dealer's hand is > 21
 	if((theDealerCardsSum) > 21)
 	{										//Dealer bust conditions
 		cout << "Dealer Busts with " << (theDealerCardsSum) << endl;
-		if(card_total > 21)
+		if( getHandTotal() > 21)
 		{
-			cout << Playersname <<" Busts with " << card_total << endl;
+			cout << Playersname <<" Busts with " << getHandTotal() << endl;
 			cout << "You both Busted"<< endl;
 			bank -= bet;
 		}
 		else
 		{
-			cout << Playersname << " Wins" << endl;
+			cout << Playersname << " Wins because the dealer busted!" << endl;
 			bank += 2*bet;
-			return 1;
+			cout << Playersname << " made $" << bank << endl;
 		}
 	}
 	else if((theDealerCardsSum) == 21)
 	{									//Dealer 21 conditions
-		if(card_total > 21)
+		if(getHandTotal() > 21)
 		{
-			cout << Playersname << " Busts with " << card_total << endl;
-			cout << "Dealer Wins Over " << Playersname << endl;
+			cout << Playersname << " Busts with " << getHandTotal() << endl;
+			cout << "Dealer Wins with a BLACKJACK Over " << Playersname << endl;
 			bank -= bet;
 		}
-		else if(card_total == 21)
+		else if(getHandTotal() == 21)
 		{
-			cout << "BLACKJACK " << Playersname << endl;
+			cout << "Dealer has BLACKJACK with " << Playersname << endl;
+			cout << "Everyone's a winner (or loser) " << endl;
 		}
 		else
 		{
-			cout << "Dealer Wins Over " << Playersname << endl;
+			cout << "Dealer Wins with BlackJack Over " << Playersname << endl;
 			bank -= bet;
 		}
 	}
 	else
 	{													//Dealer under 21 Conditions
-		if(card_total > 21)
+		if(getHandTotal() > 21)
 		{
-			cout << Playersname << " Busts with " << card_total << endl;
+			cout << Playersname << " Busts with " << getHandTotal() << endl;
 			cout << "Dealer Wins Over " << Playersname << endl;
 			bank -= bet;
 		}
-		else if(card_total > (theDealerCardsSum))
+		else if(getHandTotal() > (theDealerCardsSum))
 		{
-			cout << Playersname << " Wins with " << card_total << endl;
+			cout << Playersname << " Wins with " << getHandTotal() << endl;
 			bank += 2*bet;
-			return 1;
 		}
-		else if(card_total == (theDealerCardsSum))
+		else if(getHandTotal() == (theDealerCardsSum))
 		{
-			cout << "Push at " << card_total << " For " << Playersname << endl;
+			cout << "Push at " << getHandTotal() << " For " << Playersname << endl;
+			cout << "Everyone's a winner (or loser), but mostly you because computer's don't feel.  " << endl;
 		}
 		else
 		{
@@ -203,22 +197,29 @@ int Player::CheckWin(int theDealerCardsSum)
 			bank -= bet;
 		}
 	}
+	cout << "Player Hand: " << getHandTotal() << endl;
+	cout << "Dealer Hand: " << theDealerCardsSum << endl << endl;
 	return 0;
 }
 void Player:: Stay()
 {
-	//do nothing
+	gameOver = 1;
 }
 void Player:: Double()
 {
 	//Double at anytime
+	double balance;
 	if(bet > 500)
 	{
 		cout<<"You cannot double you bet because you don't have enough fund" << endl;
+		Stay();
 	}
 	else
 	{
 		bet = ( bet * 2 );
+		balance = bank - bet;
+		cout << "You double you bet to "<< bet << endl;
+		cout << "Money Left in bank = "<< balance << endl;
 	}
 }
 

@@ -129,13 +129,34 @@ void Dealer:: shuffle_vector( Deck * D_holder )
 	}
 
 }
-void Dealer::Deal( Deck * theDeck, Player * player )
+
+void Dealer::DealMe( Deck * theDeck )
 {
-	int x, i;
+	int i, j, k;
 
 	for(int i = 0; i < 2; i++)
 	{
-		x = rand() % 52;
+		while( j == k )
+		{
+			j = rand() % 52;
+		}
+		k = j;
+		addToHand( theDeck->getDeck()[j]->getValue() );
+	}
+}
+
+void Dealer::Deal( Deck * theDeck, Player * player )
+{
+	int x, i, y, j ,k = 0;
+
+	for(int i = 0; i < 2; i++)
+	{
+		while( x == y )
+		{
+			x = rand() % 52;
+		}
+		y = x;
+
 		//Card *trial = new Card(theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite());
 		//P_hand.push_back(trial);
 		player->addToHand( theDeck->getDeck()[x]->getValue(), theDeck->getDeck()[x]->getsuite() );

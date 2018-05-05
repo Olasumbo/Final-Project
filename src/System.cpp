@@ -18,8 +18,8 @@ System::~System()
 
 char System::choice(Deck * theDeck)
 {
-	cout << "Hit, Stay, Double, or Exit ?" << endl;
-	cout << "Press H to get a card\n, Press S to Stay\n Press D to Double\n E for Exit" << endl;
+	cout <<"Hit, Stay, Double, or Exit ?" << endl;
+	cout <<"Press H to get a card\nPress S to Stay\nPress D to Double\nE for Exit" << endl;
 	char c = ' ';
 	cin >> c;
 	switch(c)

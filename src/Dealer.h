@@ -29,14 +29,20 @@ private:
 	Deck mainDeck;
 
 public:
-	Dealer() { };
+	Dealer() { dealer_hand = 0; dealer_cardtotal = 0; };
 	~Dealer() { };
 	void shuffle_vector( Deck * D_holder );
 	void Deal( Deck * theDeck, Player * player );
+	void addToHand( int rank )
+	{
+		// IN THIS METHOD add a new card to the player's hand
+		dealer_hand += rank;
+	}
 
 	//Accessor Functions
 	int getdealerhand();
 	int getdealercardtot();
+	void DealMe( Deck * theDeck );
 };
 
 

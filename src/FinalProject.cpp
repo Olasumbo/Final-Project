@@ -75,6 +75,8 @@ int main( void )
 	}
 	Player *computergame = (Player * ) ( new System() );
 	Players.push_back( computergame );
+	obj.Deal( theDeck , computergame );
+	obj.DealMe( theDeck );
 
 	int gameNotOver = 1;
 	obj.shuffle_vector(theDeck); // Shuffles the card
@@ -97,31 +99,41 @@ int main( void )
 
 				foreachplayer->showHand();
 
-				/*for(Card *c: foreachplayer->gethand())
-				{
-					cout << c->getNiceName() << endl;
-				}*/
-
 				cout << "Get choice! P: " << foreachplayer->Playersname  << endl;
 				foreachplayer->choice(theDeck);
 
-				cout << "Get hands! P: " << foreachplayer->Playersname  << endl;
-				foreachplayer->player_hands();
+				cout << foreachplayer->Playersname  << "'s New Total Is: " << foreachplayer->getHandTotal() << endl;
 
-				/*cout << "Check if win! P: " << foreachplayer->Playersname  << endl;
+				/*cout << "Check if win! P: " << foreachplasyer->Playersname  << endl;
 				foreachplayer->CheckWin(obj.getdealerhand());*/
 
-				if(foreachplayer->CheckWin(obj.getdealerhand()) == 1)
+				if(foreachplayer->CheckBust(obj.getdealerhand()) == 1)
 				{
 					foreachplayer->gameOver = 1;
 				}
+
 			}
+			cout<< endl<< endl<< endl << endl;
 		}
-		gameNotOver = obj.getdealerhand();
+
+
+		int req = Players.size();
+		int overs = 0;
+		for( Player * foreachplayer : Players )
+		{
+			overs += foreachplayer->gameOver;
+		}
+
+		if( req == overs )
+		{
+			gameNotOver = 0;
+		}
 
 	}
+
 	for( Player * foreachplayer : Players )
 	{
+		foreachplayer->CheckWin(obj.getdealerhand());
 		delete foreachplayer;
 	}
 	return 0;
