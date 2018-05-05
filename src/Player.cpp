@@ -27,17 +27,22 @@ void Player::initBet()
 
 	do
 	{
+		cin.clear();
 		cout << "Current balance For " << Playersname << " is " << bank << endl;
 		cout<<"How much would you like to bet? Enter amount now: ";
 		cin >> bet;
-		cin.clear();
-		if(bet == 0)
+		if( bet == 0 )
 		{
 			cout << "You must bet to play" << endl;
 		}
-		else if(bet > bank)
+		else if( bet > bank )
 		{
 			cout << "You cannot bet more money than you have" << endl;
+			bet = 0;
+		}
+		else if( bet < 0 )
+		{
+			cout << "You cannot bet a negative amount" << endl;
 			bet = 0;
 		}
 	} while(bet == 0);
@@ -65,18 +70,21 @@ char Player::choice( Deck * theDeck )
 		{
 			cout << "Hitting!!" << endl;
 			Hit( theDeck ); // This passes the deck into the function
+			invalid_choice = false;
 			break;
 		}
 		case 'S':
 		case 's':
 		{
 			Stay();
+			invalid_choice = false;
 			break;
 		}
 		case 'D':
 		case 'd':
 		{
 			Double(); // if the player wants to
+			invalid_choice = false;
 			break;
 		}
 		case 'E':

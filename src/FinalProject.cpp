@@ -25,7 +25,7 @@ int main( void )
 {
 	srand (time(NULL));
 	//x_deck.displayDeck();
-	int num_player;
+	int num_player =0;
 	int counter = 0;
 	vector <Player*> Players;
 	Deck * theDeck = new Deck();
@@ -42,20 +42,25 @@ int main( void )
 
 	cout << "\n\nHow many Player would you like to play with today" << endl;
 	cin >> num_player;
-	
-	try
+
+	while( cin.fail() )
 	{
-		if(cin.fail())
-		{
-			throw 1;
-		}
+		cin.clear();
+		cin.ignore();
+		cout << "\nYou did not enter in an integer variable.\n\n";
+		cout << "Try again: " << endl;
+		cin >> num_player;
 	}
-	catch(int e)
+
+	/*do
 	{
-		cout << "\nYou did not enter in an integer variable. Program will terminate.\n\n";
-		return 0; 
-	}
-	
+		cin.clear();
+		cin.ignore();
+		cout << "\nYou did not enter in an integer variable.\n\n";
+		cout << "Try again: " << endl;
+		cin >> num_player;
+	} while( cin.fail() );*/
+
 	while(num_player >= 4)
 	{
 		cout << "You can only play with a Maximum of 5 People including the Computer"
