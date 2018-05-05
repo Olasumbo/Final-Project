@@ -18,39 +18,45 @@ System::~System()
 
 char System::choice(Deck * theDeck)
 {
-	cout <<"Hit, Stay, Double, or Exit ?" << endl;
-	cout <<"Press H to get a card\nPress S to Stay\nPress D to Double\nE for Exit" << endl;
-	char c = ' ';
-	cin >> c;
-	switch(c)
+	bool invalid_choice = false;
+	do
 	{
-	case 'H':
-	case 'h':
-	{
-		Hit(theDeck); // This passes the deck into the function
-		break;
-	}
-	case 'S':
-	case 's':
-	{
-		Stay();
-		break;
-	}
-	case 'D':
-	case 'd':
-	{
-		Double(); // if the player wants to
-		break;
-	}
-	case 'E':
-	case 'e':
-	{
-		exit(EXIT_SUCCESS);
-		break;
-	}
-	default:
-		cout << "Invalid Selection. Please try Again." << endl;
-	}
+		cout << "Hit, Stay, Double, or Exit?" << endl;
+		cout << "Press H to get a card\nPress S to Stay\nPress D to Double\nE for Exit" << endl;
+		char c = ' ';
+		cin >> c;
+		switch(c)
+		{
+		case 'H':
+		case 'h':
+		{
+			cout << "Hitting!!" << endl;
+			Hit( theDeck ); // This passes the deck into the function
+			break;
+		}
+		case 'S':
+		case 's':
+		{
+			Stay();
+			break;
+		}
+		case 'D':
+		case 'd':
+		{
+			Double(); // if the player wants to
+			break;
+		}
+		case 'E':
+		case 'e':
+		{
+			exit(EXIT_SUCCESS);
+			break;
+		}
+		default:
+			invalid_choice = true;
+			cout << "Invalid Selection. Please try Again." << endl;
+		}
+	}while(invalid_choice);
 	return 0;
 }
 

@@ -116,7 +116,6 @@ int main( void )
 			cout<< endl<< endl<< endl << endl;
 		}
 
-
 		int req = Players.size();
 		int overs = 0;
 		for( Player * foreachplayer : Players )

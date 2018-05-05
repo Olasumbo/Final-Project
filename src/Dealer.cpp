@@ -86,9 +86,6 @@ void Dealer:: shuffle_vector( Deck * D_holder )
 
 	vector<Card*> temp1, temp2;
 
-	//#include <iostream>
-	//#include <cstdlib>   // for srand and rand
-	//#include <ctime>     // for time
 	int card[52];    // array of cards;
 	int n  = 52;// number of cards to deal
 	int l = 0;
