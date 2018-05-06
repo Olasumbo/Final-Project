@@ -32,18 +32,21 @@ char System::choice(Deck * theDeck)
 		{
 			cout << "Hitting!!" << endl;
 			Hit( theDeck ); // This passes the deck into the function
+			invalid_choice = false;
 			break;
 		}
 		case 'S':
 		case 's':
 		{
 			Stay();
+			invalid_choice = false;
 			break;
 		}
 		case 'D':
 		case 'd':
 		{
 			Double(); // if the player wants to
+			invalid_choice = false;
 			break;
 		}
 		case 'E':
