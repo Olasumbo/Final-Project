@@ -27,8 +27,6 @@ void Player::initBet()
 
 	do
 	{
-		cin.clear();
-		cin.ignore(256,'\n');
 		cout << "Current balance For " << Playersname << " is " << bank << endl;
 		cout<<"How much would you like to bet? Enter amount now: ";
 		cin >> bet;

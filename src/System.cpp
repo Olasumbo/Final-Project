@@ -1,21 +1,12 @@
-/*
- * System.cpp
- *
- *  Created on: Apr 13, 2018
- *      Author: obaba
- */
 #include "System.h"
 
 System::System()
 {
 	Playersname = "Luis Rivera";
 }
-
 System::~System()
 {
-
 }
-
 char System::choice(Deck * theDeck)
 {
 	bool invalid_choice = false;
@@ -62,7 +53,6 @@ char System::choice(Deck * theDeck)
 		}while(invalid_choice);
 		return 0;
 }
-
 void System::initBet()
 {
 	bet = 0;
@@ -72,8 +62,6 @@ void System::initBet()
 	}
 	do
 	{
-		cin.clear();
-		cin.ignore(256,'\n');
 		cout << "Current balance For " << Playersname << " is " << bank << endl;
 		cout<<"How much would you like to bet? Enter amount now: ";
 		cin >> bet;
@@ -93,4 +81,3 @@ void System::initBet()
 		}
 	} while(bet == 0);
 }
-
